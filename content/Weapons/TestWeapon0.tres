@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://src/main/BaseWeapon/WeaponParameters.gd" type="Script" id=1]
-[ext_resource path="res://assets/PlaceHolders/weapon.png" type="Texture" id=2]
+[ext_resource path="res://assets/SpritesWeapon/spr_weapon_shotgun.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 weapon_name = "Test weapon"
 sprite = ExtResource( 2 )
-sprite_offset = Vector2( 12, 1 )
+sprite_offset = Vector2( 3, 0 )
 shoot_mode = 1
 damage = 20
 rate_of_fire = 5.0

@@ -6,8 +6,8 @@ const CAMERA_FOLLOW_SPEED : float = 0.1
 onready var camera: Camera2D = $PlayerCamera
 onready var cameraShaker := $PlayerCamera/CameraShaker
 
-export var offset: = Vector2(200.0, 200.0)
-export var camera_range: = Vector2(0.0, 400.0)
+export var offset: = Vector2(80.0, 80.0)
+export var camera_range: = Vector2(0.0, 200.0)
 
 
 func _init() -> void:

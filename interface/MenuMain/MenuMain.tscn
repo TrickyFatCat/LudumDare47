@@ -1,22 +1,19 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://interface/fonts/Play-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/Logo/logo_name.png" type="Texture" id=1]
 [ext_resource path="res://interface/MenuConfirm/MenuConfirm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/TextButton/TextButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/MenuMain/MenuMain.gd" type="Script" id=4]
+[ext_resource path="res://interface/fonts/GravityBold8.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/Logo/logo_number.png" type="Texture" id=6]
 
-[sub_resource type="DynamicFont" id=1]
-size = 48
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+[sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxEmpty" id=3]
-
-[sub_resource type="DynamicFont" id=4]
-size = 26
-font_data = ExtResource( 1 )
+[sub_resource type="DynamicFont" id=3]
+size = 8
+font_data = ExtResource( 5 )
 
 [node name="MenuMain" type="Control"]
 anchor_right = 1.0
@@ -31,86 +28,83 @@ starting_level = "res://levels/Levels/TestLevel.tscn"
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.180392, 0.172549, 0.384314, 1 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Menu" type="CenterContainer" parent="."]
+[node name="Number" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
+margin_left = 1.18921
+margin_top = -16.0543
+margin_right = 1.18921
+margin_bottom = -16.0543
+texture = ExtResource( 6 )
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuBody" type="VBoxContainer" parent="Menu"]
-margin_left = 319.0
-margin_top = 180.0
-margin_right = 704.0
-margin_bottom = 420.0
-custom_constants/separation = 24
-alignment = 1
+[node name="Name" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Menu/MenuBody"]
-margin_right = 385.0
-margin_bottom = 56.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 4
-custom_constants/shadow_offset_y = 4
-text = "Template project"
-align = 1
-valign = 1
-
-[node name="Buttons" type="VBoxContainer" parent="Menu/MenuBody"]
-margin_top = 80.0
-margin_right = 385.0
-margin_bottom = 240.0
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -63.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
+custom_constants/separation = -1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ButtonStart" parent="Menu/MenuBody/Buttons" instance=ExtResource( 3 )]
-margin_right = 385.0
-margin_bottom = 37.0
+[node name="ButtonStart" parent="Buttons" instance=ExtResource( 3 )]
+margin_right = 320.0
+margin_bottom = 14.0
 focus_neighbour_top = NodePath("../ButtonQuit")
-custom_styles/hover = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "START"
 
-[node name="ButtonHelp" parent="Menu/MenuBody/Buttons" instance=ExtResource( 3 )]
-margin_top = 41.0
-margin_right = 385.0
-margin_bottom = 78.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+[node name="ButtonHelp" parent="Buttons" instance=ExtResource( 3 )]
+margin_top = 13.0
+margin_right = 320.0
+margin_bottom = 27.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "HELP"
 
-[node name="ButtonCredits" parent="Menu/MenuBody/Buttons" instance=ExtResource( 3 )]
-margin_top = 82.0
-margin_right = 385.0
-margin_bottom = 119.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+[node name="ButtonCredits" parent="Buttons" instance=ExtResource( 3 )]
+margin_top = 26.0
+margin_right = 320.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "CREDITS"
 
-[node name="ButtonQuit" parent="Menu/MenuBody/Buttons" instance=ExtResource( 3 )]
-margin_top = 123.0
-margin_right = 385.0
-margin_bottom = 160.0
+[node name="ButtonQuit" parent="Buttons" instance=ExtResource( 3 )]
+margin_top = 39.0
+margin_right = 320.0
+margin_bottom = 53.0
 rect_clip_content = true
 focus_neighbour_bottom = NodePath("../ButtonStart")
-custom_styles/hover = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "QUIT"
 
 [node name="MenuConfirm" parent="." instance=ExtResource( 2 )]
+visible = false
 is_active = false

@@ -9,15 +9,15 @@ onready var menuConfirm := $MenuConfirm
 
 
 func _ready() -> void:
-	_set_menu_buttons($Menu/MenuBody/Buttons)
+	_set_menu_buttons($Buttons)
 	_set_buttons_active(false)
 	Events.connect("transition_screen_opened", self, "_activate_menu")
 	menuConfirm.connect("yes_pressed", self, "_confirm_action")
 	menuConfirm.connect("no_pressed", self, "_decline_action")
-	$Menu/MenuBody/Buttons/ButtonStart.connect("button_up", self, "_button_start_pressed")
-	$Menu/MenuBody/Buttons/ButtonHelp.connect("button_up", self, "_button_help_pressed")
-	$Menu/MenuBody/Buttons/ButtonCredits.connect("button_up", self, "_button_credits_pressed")
-	$Menu/MenuBody/Buttons/ButtonQuit.connect("button_up", self, "_button_quit_pressed")
+	$Buttons/ButtonStart.connect("button_up", self, "_button_start_pressed")
+	$Buttons/ButtonHelp.connect("button_up", self, "_button_help_pressed")
+	$Buttons/ButtonCredits.connect("button_up", self, "_button_credits_pressed")
+	$Buttons/ButtonQuit.connect("button_up", self, "_button_quit_pressed")
 	
 
 
@@ -65,7 +65,7 @@ func _decline_action() -> void:
 
 
 func _switch_menu_visibility(is_visible: bool) -> void:
-	$Menu.visible = is_visible
+	$Buttons.visible = is_visible
 	_set_buttons_active(is_visible)
 
 	if is_visible:

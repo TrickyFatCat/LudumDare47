@@ -10,7 +10,6 @@ var is_invulnerable : bool = false setget _set_is_invulnerable
 
 
 func _init() -> void:
-	connect("area_entered", self, "_on_area_entered")
 	connect("body_entered", self, "_on_body_entered")
 
 

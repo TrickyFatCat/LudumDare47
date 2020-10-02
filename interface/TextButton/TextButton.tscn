@@ -1,26 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://interface/fonts/Play-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://interface/fonts/TextButton.tres" type="DynamicFont" id=1]
 [ext_resource path="res://interface/TextButton/TextButton.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="DynamicFont" id=3]
-size = 26
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 26
-font_data = ExtResource( 1 )
-
 [node name="TextButton" type="Button"]
 margin_right = 210.0
 margin_bottom = 40.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/focus = SubResource( 2 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = ExtResource( 1 )
 shortcut_in_tooltip = false
 text = "BUTTON LABLE"
 flat = true
@@ -33,7 +25,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = ExtResource( 1 )
 text = "BUTTON LABLE"
 align = 1
 valign = 1
