@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/main/BaseLevels/BaseLevel.gd" type="Script" id=1]
+[ext_resource path="res://interface/MenuMain/MenuMain.tscn" type="PackedScene" id=2]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 512.0 ]
+}
+
+[node name="MenuMain" parent="." instance=ExtResource( 2 )]
+is_active = true

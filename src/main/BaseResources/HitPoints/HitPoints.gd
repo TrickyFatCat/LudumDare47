@@ -1,0 +1,2 @@
+extends BaseResource
+class_name HitPoints
