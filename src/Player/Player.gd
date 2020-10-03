@@ -17,6 +17,7 @@ func switch_logic(value: bool) -> void:
 
 func ready() -> void:
 	# TODO add ready logic for the player character
+	Events.connect("player_heal", self, "_process_heal")
 	pass
 
 
@@ -35,6 +36,7 @@ func _on_get_damage(damage: int) -> void:
 func _on_hitpoints_decreased() -> void:
 	Events.emit_signal("player_took_damage", hitPoints.value)
 	Events.emit_signal("shake_camera")
+	sprite.set_flash_color(Color.red)
 	sprite.start_flash(true)
 	pass
 
@@ -49,3 +51,10 @@ func _on_zero_hitpoints() -> void:
 
 func get_scent_trail() -> Array:
 	return $ScentSpawner.scent_trail
+
+
+func _process_heal(heal: int) -> void:
+	_increase_hitpoints(heal)
+	sprite.set_flash_color(Color.green)
+	sprite.start_flash(true)
+	Events.emit_signal("player_healed", hitPoints.value)

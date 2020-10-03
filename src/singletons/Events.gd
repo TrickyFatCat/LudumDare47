@@ -14,6 +14,8 @@ signal player_took_damage(hitpoints_new)
 signal player_dead()
 signal player_shoot(ammo_id, ammo_current)
 signal player_switched_weapon(weapon_name, ammo_id, ammo_current, ammo_max)
+signal player_heal(heal_power)
+signal player_healed(hitpoints_new)
 
 # Hud signals
 # TODO clean these signals, some of them are excessive

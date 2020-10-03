@@ -96,7 +96,7 @@ func get_hitpoints_current() -> int:
 
 
 func get_hitpoints_max() -> int:
-	return hitPoints.value
+	return hitPoints.value_max
 
 
 func _connect_signals() -> void:
@@ -118,3 +118,7 @@ func _apply_parameters() -> void:
 
 func _decrease_hitpoints(damage: int) -> void:
 	hitPoints.decrease_value(damage)
+
+
+func _increase_hitpoints(heal: int) -> void:
+	hitPoints.increase_value(heal)

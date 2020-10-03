@@ -6,12 +6,10 @@ extends PlayerTrigger
 class_name Pickup
 
 
-func _init() -> void:
-    connect("trigger_activated", self, "_activate_pickup_effect")
-    connect("trigger_activated", self, "queue_free")
+func _ready() -> void:
+    connect("player_entered", self, "_activate_pickup_effect")
 
 
 func _activate_pickup_effect() -> void:
     #* Write pickuplogic here
-    print_debug()
     pass

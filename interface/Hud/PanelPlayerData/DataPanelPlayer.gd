@@ -11,6 +11,7 @@ onready var ammoData : Label = $PanelWeapon/AmmoData
 func _ready() -> void:
 	Events.connect("player_took_damage", self, "_update_player_hitpoints")
 	Events.connect("player_dead", self, "_update_player_hitpoints", [0])
+	Events.connect("player_healed", self, "_update_player_hitpoints")
 	Events.connect("player_switched_weapon", self, "_update_weapon_data")
 	Events.connect("player_shoot", self, "_update_ammo_data")
 	# TODO rethink this moment, it looks like a hack. Consider to add some signal on update player hitpoints
