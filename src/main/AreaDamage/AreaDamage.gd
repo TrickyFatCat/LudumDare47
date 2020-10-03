@@ -20,6 +20,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+    _on_ready()
     timer.connect("timeout", self, "_do_damage")
     timer.wait_time = 1 / rate_of_ticks
     timer.one_shot = false
@@ -57,3 +58,8 @@ func _remove_target(area: Area2D) -> void:
     if area is DamageDetector:
         var target_index := targets.find(area)
         targets.remove(target_index)
+
+
+func _on_ready() -> void:
+    #* Write any logic here
+    pass
