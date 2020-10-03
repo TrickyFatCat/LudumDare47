@@ -1,0 +1,17 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=2]
+
+[ext_resource path="res://assets/SpritesProjectiles/spr_projectile_rocket.png" type="Texture" id=1]
+
+[resource]
+resource_local_to_scene = true
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "default",
+"speed": 0.0
+}, {
+"frames": [ null ],
+"loop": false,
+"name": "destroy",
+"speed": 24.0
+} ]
