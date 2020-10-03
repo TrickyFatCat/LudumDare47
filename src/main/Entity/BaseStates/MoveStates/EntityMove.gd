@@ -32,7 +32,7 @@ func _calculate_velocity(delta: float, direction: Vector2) -> void:
 		velocity += friction * friction_direction * delta
 		velocity.x = _limit_velocity(velocity.x, friction_direction.x)
 		velocity.y = _limit_velocity(velocity.y, friction_direction.y)
-
+	
 
 func _clamp_velocity(velocity_axis: float) -> float:
 	return clamp(velocity_axis, -velocity_max, velocity_max)

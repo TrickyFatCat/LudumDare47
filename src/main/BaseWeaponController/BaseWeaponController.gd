@@ -16,7 +16,7 @@ func flip_weapon() -> void:
 
 
 func switch_z_index() -> void:
-	z_index = sign(fmod(global_rotation_degrees, 360.0))
+	z_index = clamp(sign(fmod(global_rotation_degrees, 360.0)), -1, 0)
 
 
 func _set_is_active(value: bool) -> void:

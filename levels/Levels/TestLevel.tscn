@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/main/BaseLevels/GameplayLevel/BaseGameplayLevel.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/main/Entity/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/main/AreaDamage/AreaDamage.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Environment/Computer.tscn" type="PackedScene" id=4]
 
@@ -22,12 +21,8 @@ shape = SubResource( 1 )
 
 [node name="Player" parent="Objects" index="0"]
 position = Vector2( 0, -72 )
-velocity_max = 400.0
 
-[node name="BaseEnemy" parent="Objects" index="1" instance=ExtResource( 2 )]
-position = Vector2( 192, 8 )
-
-[node name="Wall" type="StaticBody2D" parent="Objects" index="3"]
+[node name="Wall" type="StaticBody2D" parent="Objects" index="2"]
 position = Vector2( 64, 128 )
 scale = Vector2( 4.02324, 1.00428 )
 collision_layer = 4
@@ -46,7 +41,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Wall" index="1"]
 shape = SubResource( 2 )
 
-[node name="Wall2" type="StaticBody2D" parent="Objects" index="4"]
+[node name="Wall2" type="StaticBody2D" parent="Objects" index="3"]
 position = Vector2( -96, -80 )
 scale = Vector2( 1, 4 )
 collision_layer = 4
