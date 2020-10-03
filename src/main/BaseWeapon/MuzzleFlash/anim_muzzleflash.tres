@@ -1,0 +1,17 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=2]
+
+[ext_resource path="res://assets/SpritesProjectiles/spr_muzzle_05.png" type="Texture" id=1]
+[ext_resource path="res://assets/SpritesProjectiles/spr_muzzle_03.png" type="Texture" id=2]
+[ext_resource path="res://assets/SpritesProjectiles/spr_muzzle_01.png" type="Texture" id=3]
+[ext_resource path="res://assets/SpritesProjectiles/spr_muzzle_00.png" type="Texture" id=4]
+[ext_resource path="res://assets/SpritesProjectiles/spr_muzzle_02.png" type="Texture" id=5]
+[ext_resource path="res://assets/SpritesProjectiles/spr_muzzle_04.png" type="Texture" id=6]
+[ext_resource path="res://assets/SpritesProjectiles/spr_muzzle_06.png" type="Texture" id=7]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 7 ), null ],
+"loop": false,
+"name": "muzzle",
+"speed": 30.0
+} ]

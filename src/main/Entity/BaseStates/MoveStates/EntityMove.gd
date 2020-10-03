@@ -49,3 +49,10 @@ func _limit_velocity(velocity_axis: float, direction_axis: float) -> float:
 
 func _apply_movement() -> void:
 	velocity = owner.move_and_slide(velocity) 
+
+
+func _flip_sprite(direction: Vector2) -> void:
+	if direction.x > 0:
+		owner.sprite.scale.x = 1
+	elif direction.x < 0:
+		owner.sprite.scale.x = -1

@@ -1,11 +1,11 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://src/main/BaseProjectile/ProjectileParameters.gd" type="Script" id=1]
-[ext_resource path="res://assets/PlaceHolders/projectileGreen.png" type="Texture" id=2]
+[ext_resource path="res://content/Projectiles/anim_projectile_player.tres" type="SpriteFrames" id=2]
 
 [resource]
 script = ExtResource( 1 )
-sprite = ExtResource( 2 )
+frames = ExtResource( 2 )
 motion_type = 0
 velocity_initial = 10.0
 velocity_max = 10.0

@@ -5,7 +5,7 @@ extends Resource
 class_name ProjectileParameters
 
 #* General parameters
-export(Texture) var sprite : Texture
+export(SpriteFrames) var frames : SpriteFrames
 
 #* Basic movement parameters
 export(int, "LINEAR", "ACCELERATED", "DECELERATED") var motion_type

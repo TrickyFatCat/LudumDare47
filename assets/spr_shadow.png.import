@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/projectileBlue.png-bf62268b301b647d6d194cbc98bf6db4.stex"
+path="res://.import/spr_shadow.png-689aa0068ce7e792529bd5a3f33756b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PlaceHolders/projectileBlue.png"
-dest_files=[ "res://.import/projectileBlue.png-bf62268b301b647d6d194cbc98bf6db4.stex" ]
+source_file="res://assets/spr_shadow.png"
+dest_files=[ "res://.import/spr_shadow.png-689aa0068ce7e792529bd5a3f33756b2.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

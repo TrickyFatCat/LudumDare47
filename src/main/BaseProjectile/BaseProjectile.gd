@@ -36,7 +36,7 @@ var bounce_direction_noise : float
 #* Spawned scene parameters
 var spawned_scene_path : String
 
-onready var sprite : Sprite = $Sprite
+onready var sprite := $Sprite
 
 
 func _physics_process(delta: float) -> void:
@@ -46,9 +46,13 @@ func _physics_process(delta: float) -> void:
 		_process_bounce(collision)
 
 
+# func _ready() -> void:
+# 	$Sprite.connect("animation_finished", self, "_queue_free")
+
+
 func apply_parameters(parameters: ProjectileParameters) -> void:
 	#* General parameters
-	sprite.texture = parameters.sprite
+	sprite.frames = parameters.frames
 
 	#* Damage parameters
 	damage = parameters.damage
@@ -75,10 +79,13 @@ func apply_parameters(parameters: ProjectileParameters) -> void:
 
 
 func destroy(is_spawning: bool = true) -> void:
-	# TODO add destroy logic here
-	# TODO add spawn logic on destroy here
-	queue_free()
+	$CollisionShape2D.disabled = true
+	set_physics_process(false)
+	$Sprite.play("destroy")
 	pass
+
+
+
 
 
 func _process_bounce(collision: KinematicCollision2D) -> void:

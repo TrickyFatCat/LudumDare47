@@ -9,11 +9,12 @@ func unhandled_input(event: InputEvent) -> void:
 func physics_process(delta: float) -> void:
     state_move.physics_process(delta)
     
-    if state_move.move_direction == Vector2.ZERO:
+    if state_move.move_direction != Vector2.ZERO:
         stateMachine.transition_to("Move/Run")
 
 
 func enter(msg: Dictionary = {}) -> void:
+	owner.sprite.play("idle")
 	state_move.enter()
 
 

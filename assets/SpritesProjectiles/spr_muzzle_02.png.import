@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/projectileRed.png-f3b213bd3d6778d36092a8017d92f0cf.stex"
+path="res://.import/spr_muzzle_02.png-0673657a03649e6c4f9f3751e6b6dff6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PlaceHolders/projectileRed.png"
-dest_files=[ "res://.import/projectileRed.png-f3b213bd3d6778d36092a8017d92f0cf.stex" ]
+source_file="res://assets/SpritesProjectiles/spr_muzzle_02.png"
+dest_files=[ "res://.import/spr_muzzle_02.png-0673657a03649e6c4f9f3751e6b6dff6.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

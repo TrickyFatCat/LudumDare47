@@ -18,6 +18,8 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	state_move.enter()
+	print_debug("entered")
+	owner.sprite.play("run")
 
 
 func exit() -> void:

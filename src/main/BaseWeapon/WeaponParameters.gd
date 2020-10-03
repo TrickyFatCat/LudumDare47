@@ -6,7 +6,8 @@ class_name WeaponParameters
 # General parameters
 export(String) var weapon_name := "Name"
 export(Texture) var sprite : Texture
-export(Vector2) var sprite_offset : Vector2 = Vector2.ZERO
+export(Vector2) var sprite_offset := Vector2.ZERO
+export(bool) var is_playing_muzzle := true
 
 # Damage parameters
 export(int, "Auto", "Semiauto") var shoot_mode

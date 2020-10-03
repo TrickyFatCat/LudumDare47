@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/SpritesWithFlash/Standard/SpriteFlash.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/main/BaseWeapon/BaseWeapon.gd" type="Script" id=2]
 [ext_resource path="res://assets/SpritesWeapon/spr_weapon_shotgun.png" type="Texture" id=3]
+[ext_resource path="res://src/main/BaseWeapon/MuzzleFlash/anim_muzzleflash.tres" type="SpriteFrames" id=4]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -31,6 +32,13 @@ material = SubResource( 2 )
 position = Vector2( 0, 0 )
 scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
+
+[node name="Muzzle" type="AnimatedSprite" parent="."]
+rotation = 1.57079
+frames = ExtResource( 4 )
+animation = "muzzle"
+frame = 7
+playing = true
 
 [node name="RofTimer" type="Timer" parent="."]
 one_shot = true

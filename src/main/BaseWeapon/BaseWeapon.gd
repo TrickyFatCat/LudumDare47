@@ -14,12 +14,13 @@ enum BulletType{
 	BEAM
 }
 
-const RECOIL_POWER : float = 25.0
-const RECOVERY_SPEED : float = 0.2
+const RECOIL_POWER : float = 16.0
+const RECOVERY_SPEED : float = 0.3
 const PROJECTILE_DEFAULT : String = "res://src/main/BaseProjectile/BaseProjectile.tscn"
 
 #* General parameters
 var weapon_name : String
+var is_playing_muzzle : bool
 
 #* Damage parameters
 var mode : int
@@ -46,6 +47,7 @@ var ammo_id : int
 var ammo_cost : int
 
 onready var sprite : Sprite = $Sprite
+onready var muzzle : AnimatedSprite = $Muzzle
 onready var sprite_init_pos : Vector2 = sprite.position
 onready var rofTimer : Timer = $RofTimer
 onready var chargeTimer : Timer = $ChargeTimer
@@ -76,6 +78,8 @@ func process_shoot() -> void:
 		_increase_spread()
 	
 	_apply_recoil()
+	muzzle.frame = 0
+	muzzle.play()
 	rofTimer.start()
 	emit_signal("shoot")
 
@@ -86,6 +90,7 @@ func apply_parameters(parameters: WeaponParameters) -> void:
 	sprite.texture = parameters.sprite
 	sprite.position = parameters.sprite_offset
 	sprite_init_pos = parameters.sprite_offset
+	is_playing_muzzle = parameters.is_playing_muzzle
 
 	#* Damage parameters
 	mode = parameters.shoot_mode
@@ -120,6 +125,10 @@ func apply_parameters(parameters: WeaponParameters) -> void:
 	#* Ammo parametenrs
 	ammo_id = parameters.ammo_type
 	ammo_cost = parameters.ammo_cost
+
+	#* Move muzzle
+	muzzle.position = spawn_point
+	
 
 
 

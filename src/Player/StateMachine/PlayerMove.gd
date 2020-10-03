@@ -17,16 +17,17 @@ func unhandled_input(event: InputEvent) -> void:
 
 func physics_process(delta: float) -> void:
 	_calculate_move_direction()
+	_flip_sprite(move_direction)
 	_calculate_velocity(delta, move_direction)
 	_apply_movement()
 
 
 func enter(msg: Dictionary = {}) -> void:
-	return
+	pass
 
 
 func exit() -> void:
-	return
+	pass
 
 
 func _calculate_move_direction() -> void:
