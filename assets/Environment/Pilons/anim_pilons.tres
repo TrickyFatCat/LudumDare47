@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=2]
+
+[ext_resource path="res://assets/Environment/Pilons/spr_pilon_green_02.png" type="Texture" id=1]
+[ext_resource path="res://assets/Environment/Pilons/spr_pilon_yellow_01.png" type="Texture" id=2]
+[ext_resource path="res://assets/Environment/Pilons/spr_pilon_red_02.png" type="Texture" id=3]
+[ext_resource path="res://assets/Environment/Pilons/spr_pilon_green_01.png" type="Texture" id=4]
+[ext_resource path="res://assets/Environment/Pilons/spr_pilon_red_01.png" type="Texture" id=5]
+[ext_resource path="res://assets/Environment/Pilons/spr_pilon_00.png" type="Texture" id=6]
+[ext_resource path="res://assets/Environment/Pilons/spr_pilon_yellow_02.png" type="Texture" id=7]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "green",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "red",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "yellow",
+"speed": 8.0
+} ]

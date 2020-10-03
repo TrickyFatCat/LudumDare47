@@ -1,22 +1,20 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/Environment/Pumps/anim_pumps.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/Environment/Pilons/anim_pilons.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/main/Environment/BaseObstacle.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 20, 7 )
+extents = Vector2( 5.5, 7 )
 
-[node name="Pump" instance=ExtResource( 2 )]
+[node name="Pilon" instance=ExtResource( 2 )]
 collision_mask = 56
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
-position = Vector2( 1, -13 )
+position = Vector2( 0, -14 )
 frames = ExtResource( 1 )
-animation = "green"
-frame = 1
-playing = true
+animation = "red"
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, -11 )
+position = Vector2( -0.5, -11 )
 shape = SubResource( 1 )
