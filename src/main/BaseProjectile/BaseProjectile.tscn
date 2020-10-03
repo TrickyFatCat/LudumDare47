@@ -40,3 +40,4 @@ frames = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="LifeSpanTimer" parent="." instance=ExtResource( 3 )]
+wait_time = 20.0

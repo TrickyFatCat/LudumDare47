@@ -75,8 +75,8 @@ func _start_opening_screen() -> void:
 
 
 func _apply_camera_shake(
-	duration: float = 0.2,
-	frequency: float = 15.0,
-	amplitude: int = 16,
+	duration: float = 0.15,
+	frequency: float = 10.0,
+	amplitude: int = 12,
 	priority: int = 0):
 	playerCamera.apply_camera_shake(duration, frequency, amplitude, priority)

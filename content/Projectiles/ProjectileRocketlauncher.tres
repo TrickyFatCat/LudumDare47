@@ -6,15 +6,15 @@
 [resource]
 script = ExtResource( 1 )
 frames = ExtResource( 2 )
-motion_type = 0
-velocity_initial = 10.0
-velocity_max = 10.0
-acceleration = 1.0
+motion_type = 1
+velocity_initial = 0.0
+velocity_max = 30.0
+acceleration = 4.0
 friction = 1.0
-is_bounceable = true
+is_bounceable = false
 bounce_type = 0
 bounce_velocity_factor = 1.0
-bounce_direction_noise = 40.0
+bounce_direction_noise = 20.0
 spawned_scene_path = ""
 spawned_scene_resource = ""
 scenes_number = 1

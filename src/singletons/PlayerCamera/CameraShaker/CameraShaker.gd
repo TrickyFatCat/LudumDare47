@@ -22,9 +22,9 @@ func _on_DurationTimer_timeout() -> void:
 
 
 func start(
-	duration: float = 0.2,
-	frequency: float = 15.0,
-	shake_amplitude: int = 16,
+	duration: float = 0.15,
+	frequency: float = 10.0,
+	shake_amplitude: int = 12,
 	shake_priority: int = 0
 	) -> void:
 	if shake_priority >= self.priority:

@@ -7,5 +7,3 @@
 
 [node name="Floor" parent="." index="0"]
 tile_set = ExtResource( 9 )
-
-[node name="FloorObjects" type="Node2D" parent="." index="2"]

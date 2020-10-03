@@ -42,12 +42,15 @@ onready var sprite := $Sprite
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(_calculate_motion(delta, move_direction))
 	
-	if is_bounceable and collision:
-		_process_bounce(collision)
+	if collision:
+		if is_bounceable:
+			_process_bounce(collision)
+		else:
+			destroy()
 
 
-# func _ready() -> void:
-# 	$Sprite.connect("animation_finished", self, "_queue_free")
+func _ready() -> void:
+	$Sprite.connect("animation_finished", self, "_queue_free")
 
 
 func apply_parameters(parameters: ProjectileParameters) -> void:
@@ -129,3 +132,8 @@ func _calculate_motion(delta: float, direction: Vector2) -> Vector2:
 			pass
 	
 	return velocity * direction
+
+
+func _queue_free() -> void:
+	if $Sprite.animation == "destroy":
+		queue_free()

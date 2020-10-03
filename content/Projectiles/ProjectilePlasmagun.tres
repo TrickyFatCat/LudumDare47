@@ -6,12 +6,12 @@
 [resource]
 script = ExtResource( 1 )
 frames = ExtResource( 2 )
-motion_type = 2
-velocity_initial = 5.0
+motion_type = 0
+velocity_initial = 10.0
 velocity_max = 100.0
 acceleration = 100.0
-friction = 1.0
-is_bounceable = true
+friction = 200.0
+is_bounceable = false
 bounce_type = 0
 bounce_velocity_factor = 1.0
 bounce_direction_noise = 20.0
