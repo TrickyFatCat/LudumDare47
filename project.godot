@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://interface/main/BaseDataPanel.gd"
 }, {
+"base": "StaticBody2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://src/main/Door/Door.gd"
+}, {
 "base": "Entity",
 "class": "Enemy",
 "language": "GDScript",
@@ -176,6 +181,7 @@ _global_script_class_icons={
 "ButtonText": "",
 "DamageDetector": "",
 "DataPanel": "",
+"Door": "",
 "Enemy": "",
 "EnemyChaseState": "",
 "Entity": "",
