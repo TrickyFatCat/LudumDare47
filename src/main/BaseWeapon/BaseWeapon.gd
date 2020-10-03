@@ -92,6 +92,9 @@ func apply_parameters(parameters: WeaponParameters) -> void:
 	sprite_init_pos = parameters.sprite_offset
 	is_playing_muzzle = parameters.is_playing_muzzle
 
+	if is_playing_muzzle and parameters.muzzle_frames:
+		muzzle.frames = parameters.muzzle_frames
+
 	#* Damage parameters
 	mode = parameters.shoot_mode
 	damage = parameters.damage

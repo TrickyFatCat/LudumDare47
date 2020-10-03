@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://src/main/BaseWeapon/WeaponParameters.gd" type="Script" id=1]
 [ext_resource path="res://assets/SpritesWeapon/spr_weapon_shotgun.png" type="Texture" id=2]
+[ext_resource path="res://assets/SpritesProjectiles/anim_muzzleflash.tres" type="SpriteFrames" id=3]
 
 [resource]
 script = ExtResource( 1 )
@@ -9,6 +10,7 @@ weapon_name = "Rocketlauncher"
 sprite = ExtResource( 2 )
 sprite_offset = Vector2( 3, 0 )
 is_playing_muzzle = true
+muzzle_frames = ExtResource( 3 )
 shoot_mode = 1
 damage = 20
 rate_of_fire = 10.0

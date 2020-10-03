@@ -8,6 +8,7 @@ export(String) var weapon_name := "Name"
 export(Texture) var sprite : Texture
 export(Vector2) var sprite_offset := Vector2.ZERO
 export(bool) var is_playing_muzzle := true
+export(SpriteFrames) var muzzle_frames
 
 # Damage parameters
 export(int, "Auto", "Semiauto") var shoot_mode
