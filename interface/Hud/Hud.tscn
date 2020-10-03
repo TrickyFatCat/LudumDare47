@@ -10,7 +10,10 @@ pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="DataPanelPlayer" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="MenuPause" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="MenuGameOver" parent="." instance=ExtResource( 4 )]
+visible = false

@@ -1,13 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/main/BaseLevels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/Hud/Hud.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Environment/TileSets/tileset_wall.tres" type="TileSet" id=4]
 
 [node name="BaseGameplayLevel" type="Node"]
 script = ExtResource( 1 )
 
 [node name="Floor" type="TileMap" parent="."]
+z_index = -2
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Wall" type="TileMap" parent="."]
+z_index = -2
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 4
+collision_mask = 56
 format = 1
 
 [node name="Objects" type="YSort" parent="."]
@@ -17,5 +28,13 @@ format = 1
 [node name="Projectiles" type="Node" parent="Objects"]
 
 [node name="Environment" type="YSort" parent="Objects"]
+
+[node name="Ceiling" type="TileMap" parent="."]
+z_index = -2
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 4
+collision_mask = 56
+format = 1
 
 [node name="Hud" parent="." instance=ExtResource( 3 )]

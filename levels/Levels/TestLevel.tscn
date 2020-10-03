@@ -8,68 +8,35 @@
 [ext_resource path="res://src/Environment/EmptyPit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Environment/WallMech.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Environment/WallComputer.tscn" type="PackedScene" id=8]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 20 )
+[ext_resource path="res://assets/Environment/TileSets/tileset_floor.tres" type="TileSet" id=9]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 
-[node name="FloorObjects" type="Node2D" parent="." index="1"]
+[node name="Floor" parent="." index="0"]
+tile_set = ExtResource( 9 )
+tile_data = PoolIntArray( -655356, 1, 0, -655355, 1, 0, -655354, 1, 0, -655353, 1, 0, -655352, 1, 0, -589820, 1, 0, -589819, 2, 0, -589818, 2, 65539, -589817, 2, 1, -589816, 1, 0, -458755, 0, 0, -458754, 0, 0, -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 0, 0, -524284, 1, 0, -524283, 2, 3, -524282, 2, 2, -524281, 2, 4, -524280, 1, 0, -393219, 0, 0, -393218, 3, 0, -393217, 3, 65539, -458752, 3, 65539, -458751, 3, 1, -458750, 0, 0, -458748, 1, 0, -458747, 2, 65536, -458746, 2, 65540, -458745, 2, 65537, -458744, 1, 0, -327683, 0, 0, -327682, 3, 3, -327681, 3, 2, -393216, 3, 2, -393215, 3, 4, -393214, 0, 0, -393212, 1, 0, -393211, 1, 0, -393210, 1, 0, -393209, 1, 0, -393208, 1, 0, -262147, 0, 0, -262146, 3, 3, -262145, 3, 2, -327680, 3, 2, -327679, 3, 4, -327678, 0, 0, -196611, 0, 0, -196610, 3, 65536, -196609, 3, 65540, -262144, 3, 65540, -262143, 3, 65537, -262142, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0 )
+
+[node name="Wall" parent="." index="1"]
+tile_data = PoolIntArray( -786431, 0, 0, -720896, 0, 0, -720895, 0, 0, -720892, 0, 0, -720890, 0, 0 )
+
+[node name="WallMech" parent="Wall" index="0" instance=ExtResource( 7 )]
+position = Vector2( 48, -176 )
+z_index = -2
+
+[node name="WallComputer" parent="Wall" index="1" instance=ExtResource( 8 )]
+position = Vector2( 80, -160 )
+z_index = -2
+
+[node name="FloorObjects" type="Node2D" parent="." index="2"]
 
 [node name="HazardPit" parent="FloorObjects" index="0" instance=ExtResource( 2 )]
 position = Vector2( 104, -56 )
 
-[node name="WallMech" parent="FloorObjects" index="1" instance=ExtResource( 7 )]
-position = Vector2( 16, -135 )
-collision_mask = 0
-
-[node name="WallComputer" parent="FloorObjects" index="2" instance=ExtResource( 8 )]
-position = Vector2( -12, -136 )
-collision_mask = 0
-
-[node name="EmptyPit" parent="FloorObjects" index="3" instance=ExtResource( 6 )]
+[node name="EmptyPit" parent="FloorObjects" index="1" instance=ExtResource( 6 )]
 position = Vector2( -35, -25 )
 
 [node name="Player" parent="Objects" index="0"]
 position = Vector2( 0, -72 )
-
-[node name="Wall" type="StaticBody2D" parent="Objects" index="2"]
-position = Vector2( 64, 128 )
-scale = Vector2( 4.02324, 1.00428 )
-collision_layer = 4
-collision_mask = 24
-
-[node name="ColorRect" type="ColorRect" parent="Objects/Wall" index="0"]
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-color = Color( 1, 1, 1, 0.509804 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Wall" index="1"]
-shape = SubResource( 1 )
-
-[node name="Wall2" type="StaticBody2D" parent="Objects" index="3"]
-position = Vector2( -96, -80 )
-scale = Vector2( 1, 4 )
-collision_layer = 4
-collision_mask = 24
-
-[node name="ColorRect" type="ColorRect" parent="Objects/Wall2" index="0"]
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-color = Color( 1, 1, 1, 0.509804 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Wall2" index="1"]
-shape = SubResource( 1 )
 
 [node name="Computer" parent="Objects/Environment" index="0" instance=ExtResource( 4 )]
 position = Vector2( 65, -105 )
