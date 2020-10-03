@@ -28,8 +28,8 @@ func get_damage(damage: int) -> void:
 
 func _set_is_active(value: bool) -> void:
 	is_active = value
-	monitorable = value
-	monitoring = value
+	set_deferred("monitorable", value)
+	set_deferred("monitoring", value)
 
 
 func _set_is_invulnerable(value: bool) -> void:
