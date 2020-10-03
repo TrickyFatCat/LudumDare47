@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://assets/SpritesWeapon/spr_weapon_shotgun.png" type="Texture" id=1]
+[ext_resource path="res://src/main/BaseWeapon/WeaponParameters.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+weapon_name = "Plasmagun"
+sprite = ExtResource( 1 )
+sprite_offset = Vector2( 3, 0 )
+is_playing_muzzle = true
+shoot_mode = 0
+damage = 20
+rate_of_fire = 1.0
+bullet_type = 0
+spawn_offset_x = 14.0
+bullets_count = 1
+projectile_scene_path = ""
+projectile_resource = "res://content/Projectiles/TestProjectile0.tres"
+is_spread_dynamic = true
+spread_min = 20.0
+spread_max = 40.0
+spread_increase_shift = 5.0
+spread_decrease_shift = 0.1
+ammo_type = 2
+ammo_cost = 1

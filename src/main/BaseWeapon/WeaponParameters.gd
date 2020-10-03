@@ -29,5 +29,5 @@ export(float) var spread_increase_shift := 10.0
 export(float) var spread_decrease_shift := 10.0
 
 # Ammo parameters
-export(int, "Bullet", "Shell") var ammo_type
+export(int, "Bullet", "Shell", "Energy", "Explosives") var ammo_type
 export(int) var ammo_cost := 1
