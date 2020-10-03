@@ -85,6 +85,14 @@ func destroy(is_spawning: bool = true) -> void:
 	$CollisionShape2D.set_deferred("disabled", false)
 	set_physics_process(false)
 	$Sprite.play("destroy")
+	
+	if spawned_scene_path:
+		var scene = load(spawned_scene_path)
+		var scene_instance = scene.instance()
+		GameManager.current_level.objects_node.add_child(scene_instance)
+		scene_instance.global_position = global_position
+		scene_instance.damage = damage
+
 	pass
 
 

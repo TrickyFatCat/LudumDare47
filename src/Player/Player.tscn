@@ -54,15 +54,16 @@ acceleration = 3000.0
 friction = 2000.0
 dash_velocity = 1500.0
 
-[node name="Shadow" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.470588 )
-texture = ExtResource( 19 )
-
 [node name="AnimatedSprite" parent="." instance=ExtResource( 4 )]
 material = SubResource( 2 )
 position = Vector2( 0, -8 )
 scale = Vector2( 1, 1 )
 frames = ExtResource( 3 )
+
+[node name="Shadow" type="Sprite" parent="AnimatedSprite"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 0, 8 )
+texture = ExtResource( 19 )
 
 [node name="WeaponController" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, -6 )

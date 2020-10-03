@@ -16,9 +16,9 @@ func _on_AnimatedSprite_animation_finished() -> void:
 	
 func _ready() -> void:
 	$CollisionShape2D.shape.radius = radius
+	$AnimatedSprite.play()
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
 	monitoring = false
 	# TODO Delete this test code
-	yield(get_tree().create_timer(1), "timeout")
-	queue_free()
+
