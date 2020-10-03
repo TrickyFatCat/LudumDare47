@@ -9,7 +9,7 @@ extents = Vector2( 16, 3 )
 
 [sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
-extents = Vector2( 16, 13 )
+extents = Vector2( 16, 15 )
 
 [node name="Door" type="StaticBody2D"]
 collision_layer = 4
@@ -17,7 +17,7 @@ collision_mask = 56
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -16 )
 frames = ExtResource( 1 )
 animation = "closed"
 
