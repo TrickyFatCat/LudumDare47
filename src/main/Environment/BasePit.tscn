@@ -2,11 +2,11 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 16, 7 )
+extents = Vector2( 24, 19 )
 
-[node name="BaseObstacle" type="StaticBody2D"]
-collision_layer = 4
-collision_mask = 56
+[node name="BasePit" type="StaticBody2D"]
+collision_layer = 256
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

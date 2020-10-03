@@ -1,0 +1,13 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=2]
+
+[ext_resource path="res://assets/Environment/Wall/spr_wall_mech_02.png" type="Texture" id=1]
+[ext_resource path="res://assets/Environment/Wall/spr_wall_mech_01.png" type="Texture" id=2]
+[ext_resource path="res://assets/Environment/Wall/spr_wall_mech_00.png" type="Texture" id=3]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
