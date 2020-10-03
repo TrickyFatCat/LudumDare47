@@ -75,17 +75,14 @@ func apply_parameters(parameters: ProjectileParameters) -> void:
 	bounce_direction_noise = parameters.bounce_direction_noise
 
 	#* Spawned scene parameters
-	spawned_scene_path = parameters.spawned_scene_path
+	spawned_scene_path = parameters.spawned_scene_path 
 
 
 func destroy(is_spawning: bool = true) -> void:
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", false)
 	set_physics_process(false)
 	$Sprite.play("destroy")
 	pass
-
-
-
 
 
 func _process_bounce(collision: KinematicCollision2D) -> void:

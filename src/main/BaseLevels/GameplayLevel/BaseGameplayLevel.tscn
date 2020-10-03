@@ -16,4 +16,6 @@ format = 1
 
 [node name="Projectiles" type="Node" parent="Objects"]
 
+[node name="Environment" type="YSort" parent="Objects"]
+
 [node name="Hud" parent="." instance=ExtResource( 3 )]
