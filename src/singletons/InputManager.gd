@@ -10,6 +10,7 @@ enum InputDevice {
 
 const JOY_DEADZONE : float = 0.3
 const JOY_ID_DEFAULT : int = 0
+const CROSSHAIR := preload("res://assets/spr_crosshair.png")
 
 var current_input_device : int = InputDevice.KEYBOARD
 var joy_id_current : int = JOY_ID_DEFAULT
@@ -33,7 +34,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	get_viewport().warp_mouse(OS.get_real_window_size() / 2)
+	Input.set_custom_mouse_cursor(CROSSHAIR)
+# 	get_viewport().warp_mouse(OS.get_real_window_size() / 2)
 
 
 static func get_joy_analog_direction(joy_index: int, axis_x: int, axis_y: int) -> Vector2:
