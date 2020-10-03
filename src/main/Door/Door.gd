@@ -1,3 +1,4 @@
+tool
 extends StaticBody2D
 class_name Door
 
@@ -11,9 +12,11 @@ var animation_previous : String
 onready var collision := $CollisionShape2D
 onready var sprite := $AnimatedSprite
 onready var trigger := $PlayerTrigger
+onready var lockSprite := $Lock
 
 
 func _ready() -> void:
+	set_is_locked(is_locked)
 	sprite.connect("animation_finished", self, "_on_animation_finished")
 
 	if is_auto:
@@ -41,6 +44,9 @@ func _open() -> void:
 	
 	
 func _close() -> void:
+	if is_locked and sprite.animation == "closed":
+		return
+		
 	if sprite.animation == "opening" or sprite.animation == "closing":
 		return
 		
@@ -67,3 +73,8 @@ func _on_animation_finished() -> void:
 			if trigger.is_player_inside:
 				_open()
 			pass
+
+
+func set_is_locked(value: bool) -> void:
+	is_locked = value
+	lockSprite.visible = value

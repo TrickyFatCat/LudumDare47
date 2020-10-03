@@ -1,13 +1,25 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/SpritesDoor/anim_door.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/PlayerTrigger/PlayerTrigger.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/main/Door/Door.gd" type="Script" id=3]
+[ext_resource path="res://assets/SpritesDoor/spr_lock_02.png" type="Texture" id=4]
+[ext_resource path="res://assets/SpritesDoor/spr_lock_01.png" type="Texture" id=5]
+[ext_resource path="res://assets/SpritesDoor/spr_lock_03.png" type="Texture" id=6]
+[ext_resource path="res://assets/SpritesDoor/spr_lock_00.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 3 )
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 18.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 3 )
+
+[sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
 extents = Vector2( 16, 15 )
 
@@ -21,9 +33,15 @@ position = Vector2( 0, -16 )
 frames = ExtResource( 1 )
 animation = "closed"
 
+[node name="Lock" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -7 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="PlayerTrigger" parent="." instance=ExtResource( 2 )]
 monitorable = true
@@ -31,6 +49,6 @@ is_interactable = true
 
 [node name="CollisionShape2D" parent="PlayerTrigger" index="0"]
 position = Vector2( 0, -8 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [editable path="PlayerTrigger"]

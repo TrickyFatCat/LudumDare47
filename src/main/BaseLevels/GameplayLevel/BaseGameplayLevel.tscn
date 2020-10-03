@@ -32,7 +32,7 @@ format = 1
 [node name="Environment" type="YSort" parent="Objects"]
 
 [node name="Ceiling" type="TileMap" parent="."]
-z_index = -2
+z_index = 2
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 4
