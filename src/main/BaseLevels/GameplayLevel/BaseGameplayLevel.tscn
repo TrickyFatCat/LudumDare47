@@ -39,6 +39,8 @@ format = 1
 
 [node name="Enemies" type="YSort" parent="Objects"]
 
+[node name="Doors" type="YSort" parent="Objects"]
+
 [node name="Ceiling" type="TileMap" parent="."]
 z_index = 2
 tile_set = ExtResource( 4 )

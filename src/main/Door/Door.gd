@@ -4,7 +4,6 @@ class_name Door
 
 
 export(bool) var is_locked := false
-export(bool) var opened_once := false
 export(bool) var is_auto := true
 
 var animation_previous : String
