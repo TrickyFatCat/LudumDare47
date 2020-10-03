@@ -21,15 +21,23 @@ collision_layer = 4
 collision_mask = 56
 format = 1
 
+[node name="AnimatedWalls" type="Node" parent="Wall"]
+
+[node name="Buttons" type="Node2D" parent="Wall"]
+
+[node name="Triggers" type="Node" parent="."]
+
 [node name="FloorObjects" type="Node2D" parent="."]
 
 [node name="Objects" type="YSort" parent="."]
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
 
-[node name="Projectiles" type="Node" parent="Objects"]
+[node name="Projectiles" type="YSort" parent="Objects"]
 
 [node name="Environment" type="YSort" parent="Objects"]
+
+[node name="Enemies" type="YSort" parent="Objects"]
 
 [node name="Ceiling" type="TileMap" parent="."]
 z_index = 2

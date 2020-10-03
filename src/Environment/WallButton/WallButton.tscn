@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/main/Environment/BaseObstacle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/SpritesButton/anim_button.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://src/PlayerTrigger/PlayerTrigger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Environment/WallButton/WallButton.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 8, 7 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 8, 8 )
+
+[node name="WallButton" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+position = Vector2( 8, -8 )
+frames = ExtResource( 2 )
+animation = "red"
+playing = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 8, -9 )
+shape = SubResource( 1 )
+
+[node name="PlayerTrigger" parent="." index="2" instance=ExtResource( 3 )]
+position = Vector2( 8, 8 )
+is_interactable = true
+
+[node name="CollisionShape2D" parent="PlayerTrigger" index="0"]
+shape = SubResource( 2 )
+
+[editable path="PlayerTrigger"]
