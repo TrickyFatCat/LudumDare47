@@ -145,7 +145,7 @@ func _spawn_projectile() -> void:
 	projectile_instance.global_position = projectile_spawn_position
 	projectile_instance.rotation_degrees = projectile_rotation
 	projectile_instance.move_direction = Vector2.RIGHT.rotated(projectile_instance.rotation)
-	projectile_parameters.damage = damage
+	projectile_parameters.damage = damage / bullets_count
 	projectile_instance.apply_parameters(projectile_parameters)
 
 

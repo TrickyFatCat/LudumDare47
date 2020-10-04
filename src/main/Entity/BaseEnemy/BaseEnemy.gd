@@ -6,8 +6,14 @@ class_name Enemy
 
 var target
 
+onready var playerSensor := $PlayerSensor
+
 
 func ready() -> void:
+	$PlayerSensor.connect("player_detected", self, "_on_player_detected")
+	$PlayerSensor.connect("player_lost", self, "_on_player_lost")
+	# playerSensor.connect("player_detected", self, "_on_player_detected")
+	# playerSensor.connect("player_lost", self, "_on_player_lost")
 	# TODO add ready logic for the base enemy
 	pass
 
@@ -33,4 +39,14 @@ func _on_zero_hitpoints() -> void:
 	# TODO rework this code
 	# self.is_active = false
 	queue_free()
+	pass
+
+
+func _on_player_detected() -> void:
+	print_debug("player_detected")
+	pass
+
+
+func _on_player_lost() -> void:
+	print_debug("player_lost")
 	pass

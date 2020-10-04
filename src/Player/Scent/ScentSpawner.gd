@@ -28,7 +28,6 @@ func _add_scent() -> void:
 		
 	var scent = SCENT_SCENE.instance()
 	scent.scent_spawner = self
-	scent.position = position
-
 	GameManager.current_level.add_child(scent)
+	scent.global_position = global_position
 	scent_trail.push_front(scent)

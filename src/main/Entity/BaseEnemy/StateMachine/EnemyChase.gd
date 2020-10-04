@@ -4,14 +4,20 @@ class_name EnemyChaseState
 # TODO Rework this state
 
 var target = GameManager.player
+var target_position : Vector2
 var direction : Vector2 = Vector2.ZERO
 
 onready var look : RayCast2D = owner.get_node("Look")
 
 
 func _physics_process(delta: float) -> void:
-	var motion = direction * 5.0
+	var motion = direction * 20.0
 	owner.move_and_slide(motion)
+
+	print(owner.global_position.distance_to(target_position))
+
+	if owner.position.distance_to(target_position) < 64:
+		chase_target()
 
 
 func enter(msg: Dictionary = {}) -> void:
@@ -36,6 +42,7 @@ func chase_target() -> void:
 		
 			if !look.is_colliding():
 				direction = look.cast_to.normalized()
+				target_position = scent.position
 				break
 
 	pass

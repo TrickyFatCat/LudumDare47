@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/DamageDetector/DamageDetector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/SpritesWithFlash/Animated/AnimatedSpriteFlash.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/PlaceHolders/dummy.png" type="Texture" id=3]
+[ext_resource path="res://src/main/Entity/BaseEnemy/SightSensor/SightSensor.gd" type="Script" id=3]
 [ext_resource path="res://src/main/BaseResources/HitPoints/HitPoints.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/main/Entity/BaseEnemy/BaseEnemy.gd" type="Script" id=5]
 [ext_resource path="res://src/main/StateMachine/StateMachine.gd" type="Script" id=6]
@@ -14,8 +14,16 @@
 [ext_resource path="res://src/main/Entity/BaseStates/EntityDespawn.gd" type="Script" id=12]
 [ext_resource path="res://src/main/Entity/BaseStates/MoveStates/EntitySubMove.gd" type="Script" id=13]
 [ext_resource path="res://src/main/Entity/BaseStates/MoveStates/EntityMove.gd" type="Script" id=14]
-
-
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_idle_01.png" type="Texture" id=15]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_idle_02.png" type="Texture" id=16]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_idle_03.png" type="Texture" id=17]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_idle_00.png" type="Texture" id=18]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_00.png" type="Texture" id=19]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_01.png" type="Texture" id=20]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_02.png" type="Texture" id=21]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_04.png" type="Texture" id=22]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_03.png" type="Texture" id=23]
+[ext_resource path="res://src/main/Entity/BaseEnemy/StateMachine/EnemySearch.gd" type="Script" id=24]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -38,36 +46,59 @@ shader_param/u_colour = Color( 1, 0, 0, 1 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
-"name": "default",
-"speed": 5.0
+"name": "idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
+extents = Vector2( 3, 3 )
+
+[sub_resource type="RectangleShape2D" id=5]
+resource_local_to_scene = true
+extents = Vector2( 4, 6 )
 
 [node name="BaseEnemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 5 )
 
+[node name="PlayerSensor" type="Node2D" parent="."]
+script = ExtResource( 3 )
+searching_radius = 96.0
+is_debug_enabled = false
+
 [node name="Look" type="RayCast2D" parent="."]
 enabled = true
+cast_to = Vector2( 0, 48 )
 collision_mask = 4
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 2 )]
 material = SubResource( 2 )
-position = Vector2( 0, -24 )
+position = Vector2( 0, -8 )
+scale = Vector2( 1, 1 )
 frames = SubResource( 3 )
+animation = "idle"
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4 )
 shape = SubResource( 4 )
 
 [node name="DamageDetector" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -16 )
 collision_layer = 2147483650
 collision_mask = 40
+
+[node name="Collision" parent="DamageDetector" index="0"]
+position = Vector2( 0, -6 )
+shape = SubResource( 5 )
 
 [node name="HitPoints" parent="." instance=ExtResource( 4 )]
 
@@ -93,11 +124,16 @@ script = ExtResource( 14 )
 [node name="Idle" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 7 )
 
-[node name="Move" type="Node" parent="StateMachine/Move"]
-script = ExtResource( 7 )
-
 [node name="Chase" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 8 )
 
+[node name="Search" type="Node" parent="StateMachine/Move"]
+script = ExtResource( 24 )
+
 [node name="Stunlock" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 13 )
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
+
+[editable path="DamageDetector"]
