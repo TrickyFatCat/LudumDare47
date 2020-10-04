@@ -67,3 +67,11 @@ func _on_player_detected() -> void:
 func _on_player_lost() -> void:
 	print_debug("player_lost")
 	pass
+
+
+func shoot() -> void:
+	weaponController.weapon.process_shoot()
+
+
+func aim_to(target: Vector2) -> void:
+	weaponController.look_at(target)

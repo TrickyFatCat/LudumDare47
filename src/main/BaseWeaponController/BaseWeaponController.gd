@@ -3,7 +3,7 @@
 extends Node2D
 class_name WeaponController
 
-var is_active : bool = true setget _set_is_active
+export(bool) var is_active := true setget _set_is_active
 
 
 func flip_weapon() -> void:

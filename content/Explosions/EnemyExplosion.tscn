@@ -6,7 +6,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true
-radius = 21.0238
+radius = 0.01
 
 [node name="EnemyExplosion" instance=ExtResource( 1 )]
 script = ExtResource( 3 )

@@ -5,10 +5,9 @@
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true
-radius = 21.0238
+radius = 32.0
 
 [node name="RocketExplosion" instance=ExtResource( 1 )]
-radius = 21.0
 
 [node name="AnimatedSprite" parent="." index="0"]
 position = Vector2( 0, 0 )

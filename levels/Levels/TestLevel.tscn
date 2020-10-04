@@ -17,7 +17,7 @@
 [ext_resource path="res://content/Pickups/CrateRocket.tscn" type="PackedScene" id=15]
 [ext_resource path="res://content/Pickups/CrateBullet.tscn" type="PackedScene" id=16]
 [ext_resource path="res://content/Pickups/CrateEnergy.tscn" type="PackedScene" id=17]
-[ext_resource path="res://src/main/Entity/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=18]
+[ext_resource path="res://content/Enemies/ZombieShotgunner.tscn" type="PackedScene" id=18]
 [ext_resource path="res://content/Enemies/EnemyKamikaze.tscn" type="PackedScene" id=19]
 
 [sub_resource type="NavigationPolygon" id=1]
@@ -72,11 +72,11 @@ position = Vector2( 160, 64 )
 [node name="Pilon" parent="Objects/Environment" index="2" instance=ExtResource( 5 )]
 position = Vector2( 48, 272 )
 
-[node name="BaseEnemy" parent="Objects/Enemies" index="0" instance=ExtResource( 18 )]
-position = Vector2( 288, 192 )
-
-[node name="Kamikaze" parent="Objects/Enemies" index="1" instance=ExtResource( 19 )]
+[node name="Kamikaze" parent="Objects/Enemies" index="0" instance=ExtResource( 19 )]
 position = Vector2( 281, 238 )
+
+[node name="ZombieShotgunner" parent="Objects/Enemies" index="1" instance=ExtResource( 18 )]
+position = Vector2( 275, 199 )
 
 [node name="DoorWithButton" parent="Objects/Doors" index="0" instance=ExtResource( 12 )]
 
