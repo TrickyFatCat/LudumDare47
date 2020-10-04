@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/main/BaseLevels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/Hud/Hud.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/Environment/TileSets/tileset_wall.tres" type="TileSet" id=4]
 
+[sub_resource type="NavigationPolygon" id=1]
+resource_local_to_scene = true
+
 [node name="BaseGameplayLevel" type="Node"]
 script = ExtResource( 1 )
+
+[node name="Navmesh" type="Navigation2D" parent="."]
+
+[node name="Navigation" type="NavigationPolygonInstance" parent="Navmesh"]
+navpoly = SubResource( 1 )
 
 [node name="Floor" type="TileMap" parent="."]
 z_index = -4

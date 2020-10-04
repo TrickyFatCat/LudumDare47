@@ -87,7 +87,7 @@ position = Vector2( 0, -8 )
 scale = Vector2( 1, 1 )
 frames = SubResource( 3 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="WeaponController" type="Node2D" parent="."]
