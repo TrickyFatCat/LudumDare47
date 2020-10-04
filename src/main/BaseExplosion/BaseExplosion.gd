@@ -16,7 +16,7 @@ func _on_AnimatedSprite_animation_finished() -> void:
 	
 func _ready() -> void:
 	# $CollisionShape2D.shape.set_deferred("radius", radius)
-	$CollisionShape2D.shape.call_deferred("set", "radius", radius)
+	# $CollisionShape2D.shape.call_deferred("set", "radius", radius)
 	# $CollisionShape2D.shape.radius = radius
 	$AnimatedSprite.play()
 	# yield(get_tree(), "idle_frame")
@@ -24,3 +24,6 @@ func _ready() -> void:
 	# monitoring = false
 	# TODO Delete this test code
 
+
+func set_radius() -> void:
+	$CollisionShape2D.shape.radius = radius

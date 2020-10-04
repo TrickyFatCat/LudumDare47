@@ -1,7 +1,7 @@
 extends EntityDeath
 
 const SCALE_FACTOR : float = 1.5
-const DEATH_DURATION : float = 0.5
+export(float) var death_duration : = 0.5
 
 onready var tween : Tween = $Tween
 
@@ -27,7 +27,7 @@ func enter(msg: Dictionary = {}) -> void:
 		"scale",
 		owner.sprite.scale,
 		owner.sprite.scale * SCALE_FACTOR,
-		DEATH_DURATION,
+		death_duration,
 		Tween.TRANS_EXPO,
 		Tween.EASE_IN_OUT
 	)

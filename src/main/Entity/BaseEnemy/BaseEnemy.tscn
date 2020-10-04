@@ -45,6 +45,7 @@ shader_param/u_alpha = 0.0
 shader_param/u_colour = Color( 1, 0, 0, 1 )
 
 [sub_resource type="SpriteFrames" id=3]
+resource_local_to_scene = true
 animations = [ {
 "frames": [ ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
@@ -84,7 +85,7 @@ position = Vector2( 0, -8 )
 scale = Vector2( 1, 1 )
 frames = SubResource( 3 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

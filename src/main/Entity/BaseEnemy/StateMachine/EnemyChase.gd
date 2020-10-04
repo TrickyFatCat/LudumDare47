@@ -23,7 +23,7 @@ func physics_process(delta: float) -> void:
 		if distance_to_target > 1:
 			state_move.move_direction = (path[0] - owner.position).normalized()
 			state_move._flip_sprite(state_move.move_direction)
-			state_move.velocity = state_move.move_direction * state_move.velocity_max
+			state_move.velocity = state_move.move_direction * state_move.velocity_max * delta
 			state_move._apply_movement()
 		else:
 			path.remove(0)

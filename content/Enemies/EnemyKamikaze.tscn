@@ -1,0 +1,77 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/main/Entity/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_kamikaze_idle_03.png" type="Texture" id=2]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_kamikaze_idle_00.png" type="Texture" id=3]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_kamikaze_run_02.png" type="Texture" id=4]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_kamikaze_run_03.png" type="Texture" id=5]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_kamikaze_run_00.png" type="Texture" id=6]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_kamikaze_run_01.png" type="Texture" id=7]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_kamikaze_idle_02.png" type="Texture" id=8]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_kamikaze_idle_01.png" type="Texture" id=9]
+[ext_resource path="res://content/Enemies/KamikazeAttack.gd" type="Script" id=10]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float u_alpha : hint_range(0.0, 1.0) = 0.0;
+uniform vec4 u_colour: hint_color = vec4(1.0);
+
+void fragment()
+{
+	vec4 texture_colour = texture(TEXTURE, UV);
+	COLOR.rbg = texture_colour.rbg * (1.0 - u_alpha) + u_colour.rbg * u_alpha;
+	COLOR.a = texture_colour.a;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/u_alpha = 0.0
+shader_param/u_colour = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpriteFrames" id=3]
+resource_local_to_scene = true
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "run",
+"speed": 14.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 3, 3 )
+
+[sub_resource type="RectangleShape2D" id=5]
+resource_local_to_scene = true
+extents = Vector2( 4, 6 )
+
+[node name="Kamikaze" instance=ExtResource( 1 )]
+velocity_max = 6000.0
+attack_distance = 32.0
+scene_to_spawn = "res://content/Explosions/KamikazeExplosion.tscn"
+
+[node name="AnimatedSprite" parent="." index="1"]
+material = SubResource( 2 )
+frames = SubResource( 3 )
+frame = 2
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource( 4 )
+
+[node name="Collision" parent="DamageDetector" index="0"]
+shape = SubResource( 5 )
+
+[node name="Death" parent="StateMachine" index="3"]
+death_duration = 0.6
+
+[node name="Attack" parent="StateMachine" index="5"]
+script = ExtResource( 10 )
+
+[editable path="DamageDetector"]

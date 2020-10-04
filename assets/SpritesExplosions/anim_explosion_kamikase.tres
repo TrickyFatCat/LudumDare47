@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=2]
+
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_kamikaze_07.png" type="Texture" id=1]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_kamikaze_00.png" type="Texture" id=2]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_kamikaze_01.png" type="Texture" id=3]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_kamikaze_02.png" type="Texture" id=4]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_kamikaze_03.png" type="Texture" id=5]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_kamikaze_04.png" type="Texture" id=6]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_kamikaze_05.png" type="Texture" id=7]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_kamikaze_06.png" type="Texture" id=8]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
