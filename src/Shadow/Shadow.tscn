@@ -4,5 +4,4 @@
 
 [node name="Shadow" type="Sprite"]
 modulate = Color( 1, 1, 1, 0.470588 )
-position = Vector2( 0, 8 )
 texture = ExtResource( 1 )

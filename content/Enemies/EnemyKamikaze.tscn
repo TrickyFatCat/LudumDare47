@@ -53,14 +53,14 @@ resource_local_to_scene = true
 extents = Vector2( 4, 6 )
 
 [node name="Kamikaze" instance=ExtResource( 1 )]
-velocity_max = 6000.0
+velocity_max = 7000.0
 attack_distance = 32.0
 scene_to_spawn = "res://content/Explosions/KamikazeExplosion.tscn"
 
 [node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )
 frames = SubResource( 3 )
-frame = 0
+frame = 4
 
 [node name="BaseWeapon" parent="WeaponController" index="0"]
 visible = false

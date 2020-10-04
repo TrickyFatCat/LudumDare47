@@ -52,28 +52,31 @@ resource_local_to_scene = true
 extents = Vector2( 4, 6 )
 
 [node name="Imp" instance=ExtResource( 1 )]
-velocity_max = 2000.0
+velocity_max = 4000.0
+attack_distance = 256.0
+wandering_distance = 64.0
+shot_number_max = 2
+attack_pause = 1.0
 
-[node name="AnimatedSprite" parent="." index="1"]
+[node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )
 position = Vector2( 0, -12 )
 frames = SubResource( 3 )
-frame = 2
 
-[node name="WeaponController" parent="." index="2"]
+[node name="WeaponController" parent="." index="3"]
 is_active = true
 weapon_parameters = "res://content/Weapons/Enemy/ZombieShotgun.tres"
 
 [node name="BaseWeapon" parent="WeaponController" index="0"]
 visible = false
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="4"]
 shape = SubResource( 4 )
 
 [node name="Collision" parent="DamageDetector" index="0"]
 shape = SubResource( 5 )
 
-[node name="StateMachine" parent="." index="6"]
+[node name="StateMachine" parent="." index="7"]
 initial_state = NodePath("../../Imp/StateMachine/Move/Idle")
 
 [node name="Timer" parent="StateMachine/Attack" index="0"]

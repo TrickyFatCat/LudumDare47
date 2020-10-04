@@ -52,23 +52,27 @@ resource_local_to_scene = true
 extents = Vector2( 8, 10 )
 
 [node name="Demon" instance=ExtResource( 1 )]
-velocity_max = 2000.0
+velocity_max = 1500.0
+attack_distance = 128.0
+wandering_distance = 16.0
+shot_number_max = 1
+attack_pause = 2.0
 
-[node name="AnimatedSprite" parent="." index="1"]
+[node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )
 position = Vector2( 0, -18 )
 frames = SubResource( 3 )
-frame = 1
+frame = 0
 
-[node name="WeaponController" parent="." index="2"]
+[node name="WeaponController" parent="." index="3"]
 position = Vector2( 0, -13 )
 is_active = true
-weapon_parameters = "res://content/Weapons/Enemy/ZombieShotgun.tres"
+weapon_parameters = "res://content/Weapons/Enemy/DemonGun.tres"
 
 [node name="BaseWeapon" parent="WeaponController" index="0"]
 visible = false
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="4"]
 position = Vector2( 0, -8 )
 shape = SubResource( 4 )
 
@@ -76,7 +80,7 @@ shape = SubResource( 4 )
 position = Vector2( 0, -11 )
 shape = SubResource( 5 )
 
-[node name="StateMachine" parent="." index="6"]
+[node name="StateMachine" parent="." index="7"]
 initial_state = NodePath("../../Demon/StateMachine/Move/Idle")
 
 [node name="Timer" parent="StateMachine/Attack" index="0"]

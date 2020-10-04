@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/main/BaseLevels/GameplayLevel/BaseGameplayLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Environment/HazardPit.tscn" type="PackedScene" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://content/Pickups/CrateEnergy.tscn" type="PackedScene" id=17]
 [ext_resource path="res://content/Enemies/ZombieShotgunner.tscn" type="PackedScene" id=18]
 [ext_resource path="res://content/Enemies/EnemyKamikaze.tscn" type="PackedScene" id=19]
+[ext_resource path="res://content/Enemies/Demon.tscn" type="PackedScene" id=20]
+[ext_resource path="res://content/Enemies/Imp.tscn" type="PackedScene" id=21]
 
 [sub_resource type="NavigationPolygon" id=1]
 resource_local_to_scene = true
@@ -76,6 +78,12 @@ position = Vector2( 281, 238 )
 
 [node name="ZombieShotgunner" parent="Objects/Enemies" index="1" instance=ExtResource( 18 )]
 position = Vector2( 275, 199 )
+
+[node name="Demon" parent="Objects/Enemies" index="2" instance=ExtResource( 20 )]
+position = Vector2( 244, 300 )
+
+[node name="Imp" parent="Objects/Enemies" index="3" instance=ExtResource( 21 )]
+position = Vector2( 202, 300 )
 
 [node name="DoorWithButton" parent="Objects/Doors" index="0" instance=ExtResource( 12 )]
 
