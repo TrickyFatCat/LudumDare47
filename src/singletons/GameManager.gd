@@ -32,6 +32,7 @@ func _process_transition_command() -> void:
 			# TODO implement level loading by ID
 			pass
 		LEVEL_RESTART:
+			get_tree().reload_current_scene()
 			# TODO implement level restart
 			pass
 		LEVEL_EXIT:
