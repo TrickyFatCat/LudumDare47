@@ -18,7 +18,7 @@
 [ext_resource path="res://src/main/Entity/BaseStates/EntityDeath.gd" type="Script" id=16]
 [ext_resource path="res://src/main/Entity/BaseStates/EntitySpawn.gd" type="Script" id=17]
 [ext_resource path="res://src/main/Entity/BaseStates/EntityDespawn.gd" type="Script" id=18]
-[ext_resource path="res://assets/spr_shadow.png" type="Texture" id=19]
+[ext_resource path="res://src/Shadow/Shadow.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -50,20 +50,18 @@ collision_layer = 2147483649
 collision_mask = 388
 script = ExtResource( 1 )
 velocity_max = 150.0
-acceleration = 3000.0
-friction = 2000.0
+acceleration = 2500.0
+friction = 1000.0
 dash_velocity = 1500.0
+
+[node name="Shadow" parent="." instance=ExtResource( 19 )]
+position = Vector2( 0, 0 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 4 )]
 material = SubResource( 2 )
 position = Vector2( 0, -8 )
 scale = Vector2( 1, 1 )
 frames = ExtResource( 3 )
-
-[node name="Shadow" type="Sprite" parent="AnimatedSprite"]
-modulate = Color( 1, 1, 1, 0.470588 )
-position = Vector2( 0, 8 )
-texture = ExtResource( 19 )
 
 [node name="WeaponController" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, -6 )

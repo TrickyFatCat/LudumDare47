@@ -18,7 +18,16 @@ func switch_logic(value: bool) -> void:
 func ready() -> void:
 	# TODO add ready logic for the player character
 	Events.connect("player_heal", self, "_process_heal")
+	Events.connect("restore_ammo", self, "_restore_ammo")
 	pass
+
+
+func get_ammo_current(ammo_id: int) -> int:
+	return $WeaponController.get_ammo_current(ammo_id)
+
+
+func get_ammo_max(ammo_id: int) -> int:
+	return $WeaponController.get_ammo_max(ammo_id)
 
 
 func _on_spawn() -> void:
@@ -34,7 +43,7 @@ func _on_get_damage(damage: int) -> void:
 
 
 func _on_hitpoints_decreased() -> void:
-	Events.emit_signal("player_took_damage", hitPoints.value)
+	Events.emit_signal("update_player_hitpoints", hitPoints.value)
 	Events.emit_signal("shake_camera")
 	sprite.set_flash_color(Color.red)
 	sprite.start_flash(true)
@@ -57,4 +66,10 @@ func _process_heal(heal: int) -> void:
 	_increase_hitpoints(heal)
 	sprite.set_flash_color(Color.green)
 	sprite.start_flash(true)
-	Events.emit_signal("player_healed", hitPoints.value)
+	Events.emit_signal("update_player_hitpoints", hitPoints.value)
+
+
+func _restore_ammo(ammo_id: int, number: int) -> void:
+	weaponController.increase_ammo_current(ammo_id, number)
+	sprite.set_flash_color(Color.orange)
+	sprite.start_flash(true)

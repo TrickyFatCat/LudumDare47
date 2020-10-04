@@ -88,10 +88,16 @@ func increase_ammo_current(ammo_id: int, amount: int) -> void:
 	ammo[ammo_id][0] += amount
 	ammo[ammo_id][0] = min(ammo[ammo_id][0], ammo[ammo_id][1])
 
+	if ammo_id == ammo_id_current:
+		Events.emit_signal("update_player_ammo", ammo_id, ammo[ammo_id][0])
+
 
 func decrease_ammo_current(ammo_id: int, amount: int) -> void:
 	ammo[ammo_id][0] -= amount
 	ammo[ammo_id][0] = max(ammo[ammo_id][0], 0)
+
+	if ammo_id == ammo_id_current:
+		Events.emit_signal("update_player_ammo", ammo_id, ammo[ammo_id][0])
 
 
 func set_ammo_max(ammo_id: int, new_max: int) -> void:
@@ -113,7 +119,7 @@ func _get_slot_weapon_id(weapon_slot_index: int) -> int:
 func _process_shoot() -> void:
 	decrease_ammo_current(ammo_id_current, ammo_cost_current)
 	Events.emit_signal("shake_camera")
-	Events.emit_signal("player_shoot", ammo_id_current, get_ammo_current(ammo_id_current))
+	Events.emit_signal("player_shoot")
 
 
 func _switch_weapon(weapon_id: int) -> void:

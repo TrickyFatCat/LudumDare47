@@ -9,7 +9,7 @@
 script = ExtResource( 1 )
 
 [node name="Floor" type="TileMap" parent="."]
-z_index = -2
+z_index = -4
 cell_size = Vector2( 16, 16 )
 format = 1
 

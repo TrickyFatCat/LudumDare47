@@ -27,7 +27,7 @@ func _calculate_velocity(delta: float, direction: Vector2) -> void:
 		velocity += Vector2(acceleration, acceleration) * direction * delta
 		velocity.x = _clamp_velocity(velocity.x)
 		velocity.y = _clamp_velocity(velocity.y)
-	elif velocity != Vector2.ZERO or (abs(velocity.x) > velocity_max or abs(velocity.y) > velocity_max):
+	elif direction == Vector2.ZERO or (abs(velocity.x) > velocity_max or abs(velocity.y) > velocity_max):
 		var friction_direction := velocity.normalized() * -1
 		velocity += friction * friction_direction * delta
 		velocity.x = _limit_velocity(velocity.x, friction_direction.x)

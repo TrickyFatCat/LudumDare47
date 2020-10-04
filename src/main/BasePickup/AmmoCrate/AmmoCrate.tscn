@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/main/BasePickup/BasePickup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/main/BasePickup/AmmoCrate/AmmoCrate.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 7, 5 )
+
+[node name="AmmoCrate" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+is_oneshot = false
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource( 1 )
