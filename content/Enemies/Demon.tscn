@@ -1,15 +1,14 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/main/Entity/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_idle_03.png" type="Texture" id=2]
-[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_idle_00.png" type="Texture" id=3]
-[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_00.png" type="Texture" id=4]
-[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_01.png" type="Texture" id=5]
-[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_02.png" type="Texture" id=6]
-[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_idle_01.png" type="Texture" id=7]
-[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_idle_02.png" type="Texture" id=8]
-[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_03.png" type="Texture" id=9]
-[ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_04.png" type="Texture" id=10]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_idle_00.png" type="Texture" id=2]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_idle_03.png" type="Texture" id=3]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_idle_01.png" type="Texture" id=4]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_run_02.png" type="Texture" id=5]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_idle_02.png" type="Texture" id=6]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_run_03.png" type="Texture" id=7]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_run_01.png" type="Texture" id=8]
+[ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_run_00.png" type="Texture" id=9]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -33,12 +32,12 @@ shader_param/u_colour = Color( 1, 0, 0, 1 )
 [sub_resource type="SpriteFrames" id=3]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "run",
 "speed": 14.0
@@ -46,29 +45,39 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
-extents = Vector2( 3, 3 )
+extents = Vector2( 7, 6 )
 
 [sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
-extents = Vector2( 4, 6 )
+extents = Vector2( 8, 10 )
 
-[node name="ZombieShotgunner" instance=ExtResource( 1 )]
+[node name="Demon" instance=ExtResource( 1 )]
 velocity_max = 2000.0
 
 [node name="AnimatedSprite" parent="." index="1"]
 material = SubResource( 2 )
+position = Vector2( 0, -18 )
 frames = SubResource( 3 )
-frame = 3
+frame = 1
 
 [node name="WeaponController" parent="." index="2"]
+position = Vector2( 0, -13 )
 is_active = true
 weapon_parameters = "res://content/Weapons/Enemy/ZombieShotgun.tres"
 
+[node name="BaseWeapon" parent="WeaponController" index="0"]
+visible = false
+
 [node name="CollisionShape2D" parent="." index="3"]
+position = Vector2( 0, -8 )
 shape = SubResource( 4 )
 
 [node name="Collision" parent="DamageDetector" index="0"]
+position = Vector2( 0, -11 )
 shape = SubResource( 5 )
+
+[node name="StateMachine" parent="." index="6"]
+initial_state = NodePath("../../Demon/StateMachine/Move/Idle")
 
 [node name="Timer" parent="StateMachine/Attack" index="0"]
 one_shot = true

@@ -7,6 +7,8 @@ class_name Enemy
 export(float) var aggro_distance := 256.0
 export(float) var attack_distance := 64.0
 export(float) var wandering_distance := 32
+export(int)  var shot_number_max := 3
+export(float) var attack_pause : = 4.0
 export(String, FILE, "*.tscn") var scene_to_spawn : String
 export(int) var number_of_scenes := 1
 
@@ -17,6 +19,7 @@ onready var lineOfSight : RayCast2D = $LineOfSight
 
 func ready() -> void:
 	connect("death", self, "on_death")
+	Events.connect("player_dead", stateMachine, "transition_to", ["Move/Idle"])
 	# TODO add ready logic for the base enemy
 	pass
 
