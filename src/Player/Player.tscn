@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/singletons/PlayerCamera/PlayerCamera.tscn" type="PackedScene" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://src/DamageDetector/DamageDetector.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Player/WeaponController/PlayerWeaponController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Player/StateMachine/PlayerMove.gd" type="Script" id=10]
-[ext_resource path="res://src/Player/Scent/ScentSpawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/Player/StateMachine/PlayerRun.gd" type="Script" id=12]
 [ext_resource path="res://src/Player/StateMachine/PlayerIdle.gd" type="Script" id=13]
 [ext_resource path="res://src/main/Entity/BaseStates/EntitiyInactive.gd" type="Script" id=14]
@@ -114,7 +113,5 @@ script = ExtResource( 15 )
 
 [node name="Stunlock" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 6 )
-
-[node name="ScentSpawner" parent="." instance=ExtResource( 11 )]
 
 [editable path="DamageDetector"]

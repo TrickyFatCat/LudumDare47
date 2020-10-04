@@ -12,7 +12,6 @@ func _init() -> void:
 
 func switch_logic(value: bool) -> void:
 	$CameraRig.set_physics_process(value)
-	$ScentSpawner.is_active = value
 
 
 func ready() -> void:

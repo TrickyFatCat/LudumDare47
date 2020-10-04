@@ -8,7 +8,7 @@ export(float) var searching_radius := 48
 export(float) var searching_fov := 360.0
 export(bool) var is_debug_enabled = true
 
-var _player_detected : bool = false
+var is_player_detected : bool = false
 var _fov_tolerance : float = 0
 
 
@@ -29,11 +29,11 @@ func calculate_fov_tolerance() -> void:
 
 
 func _process_player_detection() -> void:
-	if _is_player_detected() and !_player_detected:
-		_player_detected = !_player_detected
+	if _is_player_detected() and !is_player_detected:
+		is_player_detected = !is_player_detected
 		emit_signal("player_detected")
-	elif !_is_player_detected() and _player_detected:
-		_player_detected = !_player_detected
+	elif !_is_player_detected() and is_player_detected:
+		is_player_detected = !is_player_detected
 		emit_signal("player_lost")
 
 

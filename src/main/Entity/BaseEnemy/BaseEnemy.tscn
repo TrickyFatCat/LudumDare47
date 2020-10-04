@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://src/DamageDetector/DamageDetector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/SpritesWithFlash/Animated/AnimatedSpriteFlash.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_04.png" type="Texture" id=22]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_03.png" type="Texture" id=23]
 [ext_resource path="res://src/main/Entity/BaseEnemy/StateMachine/EnemySearch.gd" type="Script" id=24]
+[ext_resource path="res://src/main/Entity/BaseEnemy/StateMachine/EnemyAttack.gd" type="Script" id=25]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -74,11 +75,6 @@ script = ExtResource( 5 )
 script = ExtResource( 3 )
 searching_radius = 96.0
 is_debug_enabled = false
-
-[node name="Look" type="RayCast2D" parent="."]
-enabled = true
-cast_to = Vector2( 0, 48 )
-collision_mask = 4
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 2 )]
 material = SubResource( 2 )
@@ -134,6 +130,10 @@ script = ExtResource( 24 )
 script = ExtResource( 13 )
 
 [node name="Attack" type="Node" parent="StateMachine"]
-script = ExtResource( 7 )
+script = ExtResource( 25 )
+
+[node name="Look" type="RayCast2D" parent="."]
+enabled = true
+collision_mask = 4
 
 [editable path="DamageDetector"]

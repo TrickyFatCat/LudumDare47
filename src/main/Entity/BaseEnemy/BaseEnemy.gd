@@ -18,6 +18,10 @@ func ready() -> void:
 	pass
 
 
+func is_seeing_player() -> bool:
+	return $PlayerSensor.is_player_detected
+
+
 func _on_spawn() -> void:
 	# TODO add logic on spawn end
 	pass
