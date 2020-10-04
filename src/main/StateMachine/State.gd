@@ -23,6 +23,7 @@ func physics_process(delta: float) -> void:
 
 # warning-ignore:unused_argument
 func enter(msg: Dictionary = {}) -> void:
+	owner.sprite.play("idle")
 	#* Here you can write logic which will be called on entering state
 	return
 

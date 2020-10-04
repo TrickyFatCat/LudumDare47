@@ -9,12 +9,7 @@ func physics_process(delta: float) -> void:
 
 # warning-ignore:unused_argument
 func enter(msg: Dictionary = {}) -> void:
-	if owner.is_seeing_player():
-		print_debug("attacking")
-		stateMachine.transition_to("Move/Chase")
-	else:
-		stateMachine.transition_to("Move/Chase")
-	# return
+	return
 
 
 func exit() -> void:

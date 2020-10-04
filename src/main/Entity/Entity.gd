@@ -103,7 +103,7 @@ func _connect_signals() -> void:
 	connect("spawn", self, "_on_spawn")
 	damageDetector.connect("get_damage", self, "_on_get_damage")
 	hitPoints.connect("value_decreased", self, "_on_hitpoints_decreased")
-	hitPoints.connect("value_zero", self, "_on_zero_hitpoints")
+	hitPoints.connect("value_zero", self, "_on_zero_hitpoints", [], CONNECT_ONESHOT)
 
 
 func _apply_parameters() -> void:

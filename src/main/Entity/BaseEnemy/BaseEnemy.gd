@@ -5,6 +5,8 @@ extends Entity
 class_name Enemy
 
 export(float) var attack_distance := 64.0
+export(String, FILE, "*.tscn") var scene_to_spawn : String
+export(int) var number_of_scenes := 1
 
 onready var playerSensor := $PlayerSensor
 
@@ -12,6 +14,7 @@ onready var playerSensor := $PlayerSensor
 func ready() -> void:
 	$PlayerSensor.connect("player_detected", self, "_on_player_detected")
 	$PlayerSensor.connect("player_lost", self, "_on_player_lost")
+	connect("death", self, "on_death")
 	# playerSensor.connect("player_detected", self, "_on_player_detected")
 	# playerSensor.connect("player_lost", self, "_on_player_lost")
 	# TODO add ready logic for the base enemy
@@ -42,6 +45,13 @@ func _on_zero_hitpoints() -> void:
 	# TODO add logic on zero hitpoints
 	# TODO rework this code
 	# self.is_active = false
+	# queue_free()
+	stateMachine.transition_to("Death")
+	pass
+
+
+func on_death() -> void:
+	print("i'm dead")
 	queue_free()
 	pass
 

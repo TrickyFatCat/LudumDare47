@@ -22,6 +22,7 @@ func physics_process(delta: float) -> void:
 		var distance_to_target = owner.global_position.distance_to(path[0])
 		if distance_to_target > 1:
 			state_move.move_direction = (path[0] - owner.position).normalized()
+			state_move._flip_sprite(state_move.move_direction)
 			state_move.velocity = state_move.move_direction * state_move.velocity_max
 			state_move._apply_movement()
 		else:
@@ -32,6 +33,7 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	chase_target()
+	owner.sprite.play("run")
 	return
 
 

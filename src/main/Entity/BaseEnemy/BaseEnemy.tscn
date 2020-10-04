@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/DamageDetector/DamageDetector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/SpritesWithFlash/Animated/AnimatedSpriteFlash.tscn" type="PackedScene" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://src/main/StateMachine/State.gd" type="Script" id=7]
 [ext_resource path="res://src/main/Entity/BaseEnemy/StateMachine/EnemyChase.gd" type="Script" id=8]
 [ext_resource path="res://src/main/Entity/BaseStates/EntitiyInactive.gd" type="Script" id=9]
-[ext_resource path="res://src/main/Entity/BaseStates/EntityDeath.gd" type="Script" id=10]
+[ext_resource path="res://src/main/Entity/BaseEnemy/StateMachine/EnemyDeath.gd" type="Script" id=10]
 [ext_resource path="res://src/main/Entity/BaseStates/EntitySpawn.gd" type="Script" id=11]
 [ext_resource path="res://src/main/Entity/BaseStates/EntityDespawn.gd" type="Script" id=12]
 [ext_resource path="res://src/main/Entity/BaseStates/MoveStates/EntitySubMove.gd" type="Script" id=13]
@@ -23,7 +23,6 @@
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_02.png" type="Texture" id=21]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_04.png" type="Texture" id=22]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_03.png" type="Texture" id=23]
-[ext_resource path="res://src/main/Entity/BaseEnemy/StateMachine/EnemySearch.gd" type="Script" id=24]
 [ext_resource path="res://src/main/Entity/BaseEnemy/StateMachine/EnemyAttack.gd" type="Script" id=25]
 
 [sub_resource type="Shader" id=1]
@@ -50,12 +49,12 @@ animations = [ {
 "frames": [ ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "idle",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "run",
-"speed": 12.0
+"speed": 14.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -117,6 +116,8 @@ script = ExtResource( 12 )
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource( 10 )
 
+[node name="Tween" type="Tween" parent="StateMachine/Death"]
+
 [node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource( 14 )
 
@@ -125,9 +126,6 @@ script = ExtResource( 7 )
 
 [node name="Chase" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 8 )
-
-[node name="Search" type="Node" parent="StateMachine/Move"]
-script = ExtResource( 24 )
 
 [node name="Stunlock" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 13 )
