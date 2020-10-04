@@ -4,21 +4,36 @@
 extends Entity
 class_name Enemy
 
+export(float) var aggro_distance := 256.0
 export(float) var attack_distance := 64.0
 export(String, FILE, "*.tscn") var scene_to_spawn : String
 export(int) var number_of_scenes := 1
 
-onready var playerSensor := $PlayerSensor
+var player_detected : bool = false
+
+onready var lineOfSight : RayCast2D = $LineOfSight
 
 
 func ready() -> void:
-	$PlayerSensor.connect("player_detected", self, "_on_player_detected")
-	$PlayerSensor.connect("player_lost", self, "_on_player_lost")
 	connect("death", self, "on_death")
-	# playerSensor.connect("player_detected", self, "_on_player_detected")
-	# playerSensor.connect("player_lost", self, "_on_player_lost")
 	# TODO add ready logic for the base enemy
 	pass
+
+
+
+func _process(delta: float) -> void:
+	if player_detected:
+		return
+
+	if global_position.distance_to(GameManager.player.global_position) <= aggro_distance:
+		lineOfSight.cast_to = GameManager.player.get_node("CollisionShape2D").global_position - self.global_position
+		lineOfSight.force_raycast_update()
+
+		if lineOfSight.is_colliding() and lineOfSight.get_collider() is Player:
+			if not player_detected:
+				player_detected = true
+				_on_player_detected()
+
 
 
 func is_seeing_player() -> bool:
@@ -60,7 +75,7 @@ func on_death() -> void:
 
 
 func _on_player_detected() -> void:
-	print_debug("player_detected")
+	stateMachine.transition_to("Move/Chase")
 	pass
 
 

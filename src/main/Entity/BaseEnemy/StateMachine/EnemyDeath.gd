@@ -37,6 +37,5 @@ func enter(msg: Dictionary = {}) -> void:
 
 
 func exit() -> void:
-	print("exit")
 	owner.emit_signal("death")
 	pass

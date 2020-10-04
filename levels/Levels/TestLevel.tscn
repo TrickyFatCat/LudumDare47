@@ -22,9 +22,9 @@
 
 [sub_resource type="NavigationPolygon" id=1]
 resource_local_to_scene = true
-vertices = PoolVector2Array( 134, 255, 182, 176, 180, 287, 126, 276, 118, 176, 116, 184, 80, 185, 94, 257, 61, 254, 61, 275, 96, 277, 15, 320, 223, 176, 304, 176, 305, 321, 222, 287, 39, 278, 16, 176, 35, 260, 79, 176 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 1, 0, 5 ), PoolIntArray( 6, 5, 0, 7, 8 ), PoolIntArray( 9, 7, 10, 11 ), PoolIntArray( 7, 9, 8 ), PoolIntArray( 12, 13, 14, 15 ), PoolIntArray( 15, 14, 11, 2 ), PoolIntArray( 3, 2, 11, 10 ), PoolIntArray( 16, 9, 11 ), PoolIntArray( 16, 11, 17, 18 ), PoolIntArray( 18, 17, 19, 6, 8 ) ]
-outlines = [ PoolVector2Array( 16, 176, 79, 176, 80, 185, 116, 184, 118, 176, 182, 176, 180, 287, 222, 287, 223, 176, 304, 176, 305, 321, 15, 320 ), PoolVector2Array( 94, 257, 96, 277, 126, 276, 134, 255 ), PoolVector2Array( 35, 260, 39, 278, 61, 275, 61, 254 ) ]
+vertices = PoolVector2Array( 304, 176, 305, 321, 126, 276, 134, 255, 223, 176, 182, 176, 118, 176, 116, 184, 80, 185, 94, 257, 61, 254, 61, 275, 96, 277, 15, 320, 39, 278, 16, 176, 35, 260, 79, 176 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 6, 5, 3, 7 ), PoolIntArray( 8, 7, 3, 9, 10 ), PoolIntArray( 11, 9, 12, 13 ), PoolIntArray( 9, 11, 10 ), PoolIntArray( 2, 1, 13, 12 ), PoolIntArray( 14, 11, 13 ), PoolIntArray( 14, 13, 15, 16 ), PoolIntArray( 16, 15, 17, 8, 10 ) ]
+outlines = [ PoolVector2Array( 16, 176, 79, 176, 80, 185, 116, 184, 118, 176, 182, 176, 223, 176, 304, 176, 305, 321, 15, 320 ), PoolVector2Array( 94, 257, 96, 277, 126, 276, 134, 255 ), PoolVector2Array( 35, 260, 39, 278, 61, 275, 61, 254 ) ]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 
@@ -60,7 +60,7 @@ position = Vector2( 160, 96 )
 position = Vector2( 240, 96 )
 
 [node name="Player" parent="Objects" index="0"]
-position = Vector2( 48, 224 )
+position = Vector2( 56, 109 )
 
 [node name="Computer" parent="Objects/Environment" index="0" instance=ExtResource( 4 )]
 position = Vector2( 112, 272 )

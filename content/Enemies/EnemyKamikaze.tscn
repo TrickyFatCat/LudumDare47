@@ -57,15 +57,15 @@ velocity_max = 6000.0
 attack_distance = 32.0
 scene_to_spawn = "res://content/Explosions/KamikazeExplosion.tscn"
 
-[node name="AnimatedSprite" parent="." index="1"]
+[node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )
 frames = SubResource( 3 )
-frame = 4
+frame = 0
 
 [node name="BaseWeapon" parent="WeaponController" index="0"]
 visible = false
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="4"]
 shape = SubResource( 4 )
 
 [node name="Collision" parent="DamageDetector" index="0"]

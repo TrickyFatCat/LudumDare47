@@ -6,7 +6,7 @@ static func get_facing_direction(target: Node2D) -> Vector2:
 
 
 static func get_player_position() -> Vector2:
-	return GameManager.player.global_position
+	return GameManager.player.position
 
 
 static func get_direction_to_player(target: Node2D) -> Vector2:
