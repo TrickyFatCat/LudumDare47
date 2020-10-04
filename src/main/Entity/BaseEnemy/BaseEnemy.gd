@@ -6,6 +6,7 @@ class_name Enemy
 
 export(float) var aggro_distance := 256.0
 export(float) var attack_distance := 64.0
+export(float) var wandering_distance := 32
 export(String, FILE, "*.tscn") var scene_to_spawn : String
 export(int) var number_of_scenes := 1
 
@@ -33,7 +34,6 @@ func _process(delta: float) -> void:
 			if not player_detected:
 				player_detected = true
 				_on_player_detected()
-
 
 
 func is_seeing_player() -> bool:

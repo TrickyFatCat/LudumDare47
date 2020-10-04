@@ -21,6 +21,8 @@ func physics_process(delta: float) -> void:
 	if timer.is_stopped():
 		owner.aim_to(GameManager.player.position)
 		owner.shoot()
+	else:
+		stateMachine.transition_to("Move/Wander")
 	#* Here you can write logic which will be called in _physics_process()
 	#! DO NOT USE _physics_process() in inherited class
 	return

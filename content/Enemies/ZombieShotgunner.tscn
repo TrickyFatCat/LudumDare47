@@ -53,19 +53,17 @@ resource_local_to_scene = true
 extents = Vector2( 4, 6 )
 
 [node name="ZombieShotgunner" instance=ExtResource( 1 )]
+velocity_max = 2000.0
 
-[node name="LineOfSight" parent="." index="0"]
-collide_with_areas = false
-
-[node name="AnimatedSprite" parent="." index="2"]
+[node name="AnimatedSprite" parent="." index="1"]
 material = SubResource( 2 )
 frames = SubResource( 3 )
 
-[node name="WeaponController" parent="." index="3"]
+[node name="WeaponController" parent="." index="2"]
 is_active = true
 weapon_parameters = "res://content/Weapons/Enemy/ZombieShotgun.tres"
 
-[node name="CollisionShape2D" parent="." index="4"]
+[node name="CollisionShape2D" parent="." index="3"]
 shape = SubResource( 4 )
 
 [node name="Collision" parent="DamageDetector" index="0"]
