@@ -24,9 +24,9 @@
 
 [sub_resource type="NavigationPolygon" id=1]
 resource_local_to_scene = true
-vertices = PoolVector2Array( 304, 176, 305, 321, 126, 276, 134, 255, 223, 176, 182, 176, 118, 176, 116, 184, 80, 185, 94, 257, 61, 254, 61, 275, 96, 277, 15, 320, 39, 278, 16, 176, 35, 260, 79, 176 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 6, 5, 3, 7 ), PoolIntArray( 8, 7, 3, 9, 10 ), PoolIntArray( 11, 9, 12, 13 ), PoolIntArray( 9, 11, 10 ), PoolIntArray( 2, 1, 13, 12 ), PoolIntArray( 14, 11, 13 ), PoolIntArray( 14, 13, 15, 16 ), PoolIntArray( 16, 15, 17, 8, 10 ) ]
-outlines = [ PoolVector2Array( 16, 176, 79, 176, 80, 185, 116, 184, 118, 176, 182, 176, 223, 176, 304, 176, 305, 321, 15, 320 ), PoolVector2Array( 94, 257, 96, 277, 126, 276, 134, 255 ), PoolVector2Array( 35, 260, 39, 278, 61, 275, 61, 254 ) ]
+vertices = PoolVector2Array( 20, 312, 64, 280, 88, 276, 136, 276, 292, 312, 36, 280, 20, 184, 36, 252, 64, 252, 292, 184, 88, 248, 136, 248 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 1, 0 ), PoolIntArray( 5, 0, 6, 7 ), PoolIntArray( 8, 7, 6, 9, 10 ), PoolIntArray( 9, 4, 3, 11 ), PoolIntArray( 2, 1, 8, 10 ), PoolIntArray( 10, 9, 11 ) ]
+outlines = [ PoolVector2Array( 20, 184, 292, 184, 292, 312, 20, 312 ), PoolVector2Array( 88, 248, 88, 276, 136, 276, 136, 248 ), PoolVector2Array( 36, 252, 36, 280, 64, 280, 64, 252 ) ]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 

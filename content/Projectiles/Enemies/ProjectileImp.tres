@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://src/main/BaseProjectile/ProjectileParameters.gd" type="Script" id=1]
+[ext_resource path="res://content/Projectiles/anim_projectile_player_plasma.tres" type="SpriteFrames" id=2]
+
+[resource]
+script = ExtResource( 1 )
+frames = ExtResource( 2 )
+motion_type = 0
+velocity_initial = 4.0
+velocity_max = 100.0
+acceleration = 100.0
+friction = 200.0
+is_bounceable = false
+bounce_type = 0
+bounce_velocity_factor = 1.0
+bounce_direction_noise = 20.0
+spawned_scene_path = ""
+spawned_scene_resource = ""
+scenes_number = 1

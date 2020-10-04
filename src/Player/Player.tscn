@@ -54,7 +54,6 @@ friction = 900.0
 dash_velocity = 1500.0
 
 [node name="Shadow" parent="." instance=ExtResource( 19 )]
-position = Vector2( 0, 0 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 4 )]
 material = SubResource( 2 )

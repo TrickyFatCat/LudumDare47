@@ -62,10 +62,12 @@ attack_pause = 1.0
 material = SubResource( 2 )
 position = Vector2( 0, -12 )
 frames = SubResource( 3 )
+frame = 1
 
 [node name="WeaponController" parent="." index="3"]
+position = Vector2( 0, -9 )
 is_active = true
-weapon_parameters = "res://content/Weapons/Enemy/ZombieShotgun.tres"
+weapon_parameters = "res://content/Weapons/Enemy/ImpGun.tres"
 
 [node name="BaseWeapon" parent="WeaponController" index="0"]
 visible = false
@@ -74,6 +76,7 @@ visible = false
 shape = SubResource( 4 )
 
 [node name="Collision" parent="DamageDetector" index="0"]
+position = Vector2( 0, -8 )
 shape = SubResource( 5 )
 
 [node name="StateMachine" parent="." index="7"]

@@ -42,7 +42,7 @@ func exit() -> void:
 	
 
 func chase_target() -> void:
-	path = navigation.get_simple_path(owner.global_position, GameManager.player.global_position, true)
+	path = navigation.get_simple_path(owner.global_position, GameManager.player.global_position, false)
 	owner.get_node("Line2D").points = path
 	owner.get_node("Line2D").set_as_toplevel(true)
 	pass
