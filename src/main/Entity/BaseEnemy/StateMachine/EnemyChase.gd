@@ -1,26 +1,29 @@
-extends State
+extends EntitySubMove
 class_name EnemyChaseState
 
 # TODO Rework this state
 
-var target = GameManager.player
-var target_position : Vector2
-var direction : Vector2 = Vector2.ZERO
-
 var path : PoolVector2Array
 
-
-onready var look : RayCast2D = owner.get_node("Look")
 onready var navigation : Navigation2D = GameManager.current_level.get_node("Navmesh")
 
-
 func physics_process(delta: float) -> void:
+	if Utility.get_distance_to_player(owner) <= owner.attack_distance:
+		stateMachine.transition_to("Attack")
+		return
+
+	
+	if Utility.get_player_position().distance_to(path[(path.size() - 1)]) > owner.attack_distance:
+		chase_target()
+		return
+
+	
 	if path.size() > 0:
-		var distance_to_target = owner.position.distance_to(path[0])
-		if distance_to_target > 64:
-			var dir = (path[0] - owner.position).normalized()
-			var velocity_move = dir.normalized() * 60
-			owner.move_and_slide(velocity_move)
+		var distance_to_target = owner.global_position.distance_to(path[0])
+		if distance_to_target > 1:
+			state_move.move_direction = (path[0] - owner.position).normalized()
+			state_move.velocity = state_move.move_direction * state_move.velocity_max
+			state_move._apply_movement()
 		else:
 			path.remove(0)
 	else:
@@ -37,5 +40,7 @@ func exit() -> void:
 	
 
 func chase_target() -> void:
-	path = navigation.get_simple_path(owner.position, Utility.get_player_position(), false)
+	path = navigation.get_simple_path(owner.global_position, GameManager.player.global_position, true)
+	owner.get_node("Line2D").points = path
+	owner.get_node("Line2D").set_as_toplevel(true)
 	pass

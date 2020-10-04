@@ -4,7 +4,7 @@
 extends Entity
 class_name Enemy
 
-var target
+export(float) var attack_distance := 64.0
 
 onready var playerSensor := $PlayerSensor
 
