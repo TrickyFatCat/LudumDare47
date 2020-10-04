@@ -44,14 +44,17 @@ func _on_hitpoints_decreased() -> void:
 func _on_zero_hitpoints() -> void:
 	# TODO add logic on zero hitpoints
 	# TODO rework this code
-	# self.is_active = false
-	# queue_free()
 	stateMachine.transition_to("Death")
 	pass
 
 
 func on_death() -> void:
-	print("i'm dead")
+	if scene_to_spawn:
+		var scene := load(scene_to_spawn)
+		var scene_instance = scene.instance()
+		GameManager.current_level.objects_node.add_child(scene_instance)
+		scene_instance.global_position = global_position
+
 	queue_free()
 	pass
 

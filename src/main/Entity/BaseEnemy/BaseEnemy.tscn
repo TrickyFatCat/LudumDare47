@@ -71,6 +71,7 @@ collision_mask = 4
 script = ExtResource( 5 )
 velocity_max = 40.0
 friction = 5000.0
+scene_to_spawn = "res://content/Explosions/EnemyExplosion.tscn"
 
 [node name="PlayerSensor" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -83,7 +84,7 @@ position = Vector2( 0, -8 )
 scale = Vector2( 1, 1 )
 frames = SubResource( 3 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

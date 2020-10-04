@@ -89,7 +89,7 @@ func destroy(is_spawning: bool = true) -> void:
 	if spawned_scene_path:
 		var scene = load(spawned_scene_path)
 		var scene_instance = scene.instance()
-		GameManager.current_level.objects_node.add_child(scene_instance)
+		GameManager.current_level.projectiles_parent.add_child(scene_instance)
 		scene_instance.global_position = global_position
 		scene_instance.damage = damage
 	pass
