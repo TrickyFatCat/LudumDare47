@@ -11,7 +11,7 @@ const ENEMY_SCENES : Array = [
 	preload("res://content/Enemies/Demon.tscn")
 ]
 
-export(int) var spawn_pause := 1
+export(float) var spawn_pause := 1
 export(int) var spawn_number := 1
 export(Array, int) var enemy_count = [
 	0,

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/main/Entity/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_idle_00.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_01.png" type="Texture" id=15]
 [ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_06.png" type="Texture" id=16]
 [ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_07.png" type="Texture" id=17]
+[ext_resource path="res://src/main/BaseResources/HitPoints/HitPoints.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -69,7 +70,7 @@ hitpoints_max = 120
 velocity_max = 2000.0
 attack_distance = 128.0
 wandering_distance = 0.0
-attack_pause = 1.5
+attack_pause = 1.75
 
 [node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )
@@ -88,6 +89,8 @@ shape = SubResource( 4 )
 [node name="Collision" parent="DamageDetector" index="0"]
 position = Vector2( 0, -11 )
 shape = SubResource( 5 )
+
+[node name="HitPoints" parent="DamageDetector/Collision" index="0" instance=ExtResource( 18 )]
 
 [node name="Timer" parent="StateMachine/Attack" index="0"]
 one_shot = true

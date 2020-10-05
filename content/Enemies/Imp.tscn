@@ -67,8 +67,7 @@ extents = Vector2( 4, 6 )
 hitpoints_max = 60
 velocity_max = 4000.0
 attack_distance = 256.0
-shot_number_max = 4
-attack_pause = 1.5
+attack_pause = 1.75
 
 [node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )

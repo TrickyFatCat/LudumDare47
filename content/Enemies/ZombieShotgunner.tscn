@@ -69,9 +69,9 @@ extents = Vector2( 4, 6 )
 hitpoints_max = 80
 velocity_max = 4000.0
 attack_distance = 96.0
-wandering_distance = 16.0
+wandering_distance = 24.0
 shot_number_max = 1
-attack_pause = 1.5
+attack_pause = 2.0
 is_weapon_visible = true
 
 [node name="AnimatedSprite" parent="." index="2"]

@@ -95,6 +95,9 @@ func _on_player_lost() -> void:
 
 func shoot() -> void:
 	weaponController.weapon.process_shoot()
+
+
+func play_shoot() -> void:
 	$Attack.play()
 
 

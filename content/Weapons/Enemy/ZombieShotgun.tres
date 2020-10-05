@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource( 2 )
 weapon_name = "Shotgun"
+sound = ""
 sprite = ExtResource( 1 )
 sprite_offset = Vector2( 3, 0 )
 is_playing_muzzle = true
@@ -16,7 +17,7 @@ damage = 20
 rate_of_fire = 1.0
 bullet_type = 0
 spawn_offset_x = 14.0
-bullets_count = 10
+bullets_count = 8
 projectile_scene_path = "res://content/Weapons/Projectiles/ProjectileEnemy.tscn"
 projectile_resource = "res://content/Projectiles/Enemies/ProjectileZombie.tres"
 is_spread_dynamic = false
