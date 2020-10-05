@@ -65,9 +65,13 @@ resource_local_to_scene = true
 extents = Vector2( 4, 6 )
 
 [node name="ZombieShotgunner" instance=ExtResource( 1 )]
-velocity_max = 6000.0
+hitpoints_max = 50
+hitpoints_initial = 50
+velocity_max = 4000.0
+attack_distance = 128.0
+wandering_distance = 16.0
 shot_number_max = 1
-attack_pause = 2.0
+attack_pause = 2.5
 is_weapon_visible = true
 
 [node name="AnimatedSprite" parent="." index="2"]

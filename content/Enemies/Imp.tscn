@@ -66,7 +66,7 @@ extents = Vector2( 4, 6 )
 [node name="Imp" instance=ExtResource( 1 )]
 velocity_max = 4000.0
 attack_distance = 256.0
-wandering_distance = 64.0
+wandering_distance = 32.0
 shot_number_max = 2
 attack_pause = 1.0
 

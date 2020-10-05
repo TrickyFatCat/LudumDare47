@@ -7,7 +7,7 @@ signal spawn
 signal death
 
 export(int) var hitpoints_max := 100
-export(int) var hitpoints_initial := 100
+# export(int) var hitpoints_initial := 100
 export(float) var velocity_max := 400
 export(float) var acceleration := 2500
 export(float) var friction := 2500
@@ -108,7 +108,7 @@ func _connect_signals() -> void:
 
 func _apply_parameters() -> void:
 	hitPoints.value_max = hitpoints_max
-	hitPoints.value = hitpoints_initial
+	hitPoints.value = hitpoints_max
 
 	if has_node("WeaponController"):
 		weaponController = get_node("WeaponController")

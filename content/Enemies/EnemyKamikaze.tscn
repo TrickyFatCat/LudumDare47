@@ -65,6 +65,8 @@ resource_local_to_scene = true
 extents = Vector2( 4, 6 )
 
 [node name="Kamikaze" instance=ExtResource( 1 )]
+hitpoints_max = 20
+hitpoints_initial = 20
 velocity_max = 7000.0
 attack_distance = 32.0
 scene_to_spawn = "res://content/Explosions/KamikazeExplosion.tscn"
