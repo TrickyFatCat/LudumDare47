@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/main/BaseLevels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/Hud/Hud.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/Environment/TileSets/tileset_wall.tres" type="TileSet" id=4]
+[ext_resource path="res://src/singletons/MusicPlayer/MusicPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sounds/Music/bgm_lvl1.wav" type="AudioStream" id=6]
 
 [sub_resource type="NavigationPolygon" id=1]
 resource_local_to_scene = true
@@ -62,3 +64,6 @@ collision_mask = 56
 format = 1
 
 [node name="Hud" parent="." instance=ExtResource( 3 )]
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 5 )]
+stream = ExtResource( 6 )

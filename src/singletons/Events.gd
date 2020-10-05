@@ -25,6 +25,8 @@ signal menu_pause_opened()
 signal menu_pause_closed()
 
 # Transition signals
+signal transition_started()
+signal transition_stopped()
 signal transition_screen_opened()
 signal transition_screen_closed()
 

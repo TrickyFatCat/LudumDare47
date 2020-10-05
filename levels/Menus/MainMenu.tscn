@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/main/BaseLevels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://interface/MenuMain/MenuMain.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/singletons/MusicPlayer/MusicPlayer.tscn" type="PackedScene" id=3]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource( 1 )
@@ -10,3 +11,6 @@ __meta__ = {
 }
 
 [node name="MenuMain" parent="." instance=ExtResource( 2 )]
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 3 )]
+autoplay = true

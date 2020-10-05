@@ -5,6 +5,7 @@
 
 [node name="SplashScreenTeam" instance=ExtResource( 1 )]
 next_level = "res://levels/Menus/MainMenu.tscn"
+audio = "res://sounds/sfx_goose.wav"
 
 [node name="SplashImage" parent="." index="0"]
 texture = ExtResource( 2 )

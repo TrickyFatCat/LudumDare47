@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/singletons/MusicPlayer/MusicPlayer.gd" type="Script" id=1]
+[ext_resource path="res://sounds/Music/bgm_menu.wav" type="AudioStream" id=2]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource( 2 )
+volume_db = -80.0
+autoplay = true
+script = ExtResource( 1 )

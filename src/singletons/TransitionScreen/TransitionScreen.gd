@@ -11,6 +11,7 @@ var masks: Array = [
 	"res://materials/Transition/Masks/shader_mask_shards_3.png",
 	"res://materials/Transition/Masks/shader_mask_shards_4.png"
 ]
+var tween_progress : float
 
 onready var stateMachine: StateMachine = $StateMachine
 onready var transitionTween: Tween = $TransitionTween
@@ -23,6 +24,7 @@ onready var state_transition: String = get_node("StateMachine/Transition").name
 	
 func _ready() -> void:
 	transitionTween.connect("tween_all_completed", self, "_on_tween_completed")
+	transitionTween.connect("tween_step", self, "_on_tween_step")
 	stateMachine.set_physics_process(false)
 	
 
@@ -76,3 +78,8 @@ func _set_random_mask() -> void:
 	randomize()
 	var new_mask: = load(masks[randi() % masks.size()])
 	_set_transition_mask(new_mask)
+
+
+func _on_tween_step(object: Object, key: NodePath, elapsed_time: float, value: Object) -> void:
+	tween_progress = screen_shader.get_shader_param("cutoff")
+	pass

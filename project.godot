@@ -237,7 +237,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Honk II"
-run/main_scene="res://levels/Menus/MainMenu.tscn"
+run/main_scene="res://levels/SplashScreens/SplashScreenJam.tscn"
 config/icon="res://icon.png"
 
 [autoload]

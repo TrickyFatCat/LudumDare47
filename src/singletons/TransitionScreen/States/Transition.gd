@@ -6,6 +6,7 @@ func unhandled_input(event: InputEvent) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
+	Events.emit_signal("transition_started")
 	return
 
 
