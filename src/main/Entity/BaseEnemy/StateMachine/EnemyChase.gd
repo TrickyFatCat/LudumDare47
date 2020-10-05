@@ -12,13 +12,11 @@ func physics_process(delta: float) -> void:
 		stateMachine.transition_to("Attack")
 		return
 
-	
-	if Utility.get_player_position().distance_to(path[(path.size() - 1)]) > owner.attack_distance:
-		chase_target()
-		return
-
-	
 	if not path.empty():
+		if Utility.get_player_position().distance_to(path[(path.size() - 1)]) > owner.attack_distance:
+			chase_target()
+			return
+
 		var distance_to_target = owner.global_position.distance_to(path[0])
 		if distance_to_target > 5:
 			state_move.move_direction = (path[0] - owner.position).normalized()
