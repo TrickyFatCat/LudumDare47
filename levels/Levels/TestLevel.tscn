@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/main/BaseLevels/GameplayLevel/BaseGameplayLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Environment/HazardPit.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://content/Enemies/Imp.tscn" type="PackedScene" id=21]
 [ext_resource path="res://src/SpawnSystem/SpawnPoint.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/SpawnSystem/EnemySpawner.tscn" type="PackedScene" id=23]
+[ext_resource path="res://src/PlayerTrigger/PlayerTrigger.tscn" type="PackedScene" id=24]
 
 [sub_resource type="NavigationPolygon" id=1]
 resource_local_to_scene = true
@@ -44,7 +45,8 @@ tile_data = PoolIntArray( 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0
 
 [node name="EnemySpawner" parent="." index="2" instance=ExtResource( 23 )]
 spawn_pause = 3
-enemy_count = [ 2, 0, 1, 0 ]
+enemy_count = [ 0, 2, 0, 2 ]
+trigger_node = NodePath("../Wall/Buttons/WallButton")
 
 [node name="SpawnPoint" parent="EnemySpawner" index="1" instance=ExtResource( 22 )]
 position = Vector2( 96, 48 )
@@ -89,6 +91,9 @@ z_index = -2
 
 [node name="WallButton" parent="Wall/Buttons" index="0" instance=ExtResource( 11 )]
 position = Vector2( 48, 32 )
+
+[node name="PlayerTrigger" parent="Triggers" index="0" instance=ExtResource( 24 )]
+position = Vector2( 56, 64 )
 is_oneshot = true
 
 [node name="HazardPit" parent="FloorObjects" index="0" instance=ExtResource( 2 )]

@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name WallButton
 
 signal switched_on
 signal switched_off

@@ -15,6 +15,7 @@ export(Array, int) var enemy_count = [
 	0,
 	0
 ]
+export(NodePath) var trigger_node
 
 var enemy_data : Array = [
 	[0, 0],
@@ -47,9 +48,15 @@ func _ready() -> void:
 	for child in get_children():
 		if child is SpawnPoint:
 			spawn_points.append(child)
+
 	
 	yield(GameManager.current_level, "ready")
-	start_spawn()
+	if trigger_node:
+		var node = get_node(trigger_node)
+		if node is PlayerTrigger:
+			node.connect("trigger_activated", self, "start_spawn", [], CONNECT_ONESHOT)
+		if node is WallButton:
+			node.connect("switched_on", self, "start_spawn", [], CONNECT_ONESHOT)
 
 
 func start_spawn() -> void:
@@ -86,6 +93,7 @@ func start_spawn() -> void:
 		var enemy_instance = ENEMY_SCENES[enemy_id].instance()
 		GameManager.current_level.enemy_parent.add_child(enemy_instance)
 		enemy_instance.global_position = spawn_point.global_position
+		enemy_instance.connect("spawn", spawn_point, "hide", [], CONNECT_ONESHOT)
 		spawn_point.show()
 		enemy_data[data_index][1] -= 1
 

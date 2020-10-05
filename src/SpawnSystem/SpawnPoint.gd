@@ -11,9 +11,7 @@ func _ready() -> void:
 func show() -> void:
 	visible = true
 	sprite.start_flash(false)
-	yield(get_tree().create_timer(2), "timeout")
-	hide()
-
+	
 
 func hide() -> void:
 	visible = false
