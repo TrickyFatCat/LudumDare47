@@ -159,6 +159,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/main/Entity/BaseEnemy/SightSensor/SightSensor.gd"
 }, {
+"base": "Position2D",
+"class": "SpawnPoint",
+"language": "GDScript",
+"path": "res://src/SpawnSystem/SpawnPoint.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -215,6 +220,7 @@ _global_script_class_icons={
 "ProjectileParameters": "",
 "ScentSpawner": "",
 "SightSensor": "",
+"SpawnPoint": "",
 "State": "res://assets/EngineIcons/icon_state.svg",
 "StateMachine": "res://assets/EngineIcons/icon_stateMachine.svg",
 "Weapon": "",

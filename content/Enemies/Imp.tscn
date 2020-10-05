@@ -62,7 +62,6 @@ attack_pause = 1.0
 material = SubResource( 2 )
 position = Vector2( 0, -12 )
 frames = SubResource( 3 )
-frame = 1
 
 [node name="WeaponController" parent="." index="3"]
 position = Vector2( 0, -9 )

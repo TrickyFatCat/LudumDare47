@@ -60,7 +60,6 @@ scene_to_spawn = "res://content/Explosions/KamikazeExplosion.tscn"
 [node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )
 frames = SubResource( 3 )
-frame = 4
 
 [node name="BaseWeapon" parent="WeaponController" index="0"]
 visible = false

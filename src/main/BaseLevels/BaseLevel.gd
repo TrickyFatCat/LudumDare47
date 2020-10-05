@@ -8,6 +8,7 @@ const YSORT_NODE_NAME : String = "Objects"
 
 var objects_node : YSort
 var projectiles_parent : Node
+var enemy_parent : Node
 
 
 func _init() -> void:
@@ -20,6 +21,9 @@ func _ready() -> void:
 	
 	if objects_node:
 		projectiles_parent = objects_node.get_node("Projectiles")
+		enemy_parent = objects_node.get_node("Enemies")
+
+	
 
 	ready()
 	yield(get_tree().create_timer(LOAD_DEALAY_TIME), "timeout")

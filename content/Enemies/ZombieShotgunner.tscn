@@ -60,7 +60,6 @@ attack_pause = 2.0
 [node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )
 frames = SubResource( 3 )
-frame = 0
 
 [node name="WeaponController" parent="." index="3"]
 is_active = true
