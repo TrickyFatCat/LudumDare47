@@ -237,7 +237,10 @@ _global_script_class_icons={
 [application]
 
 config/name="Honk II"
-run/main_scene="res://levels/SplashScreens/SplashScreenJam.tscn"
+run/main_scene="res://levels/SplashScreens/SplashScreenGodot.tscn"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -250,6 +253,10 @@ TransitionScreen="*res://src/singletons/TransitionScreen/TransitionScreen.tscn"
 GameManager="*res://src/singletons/GameManager.gd"
 InputManager="*res://src/singletons/InputManager.gd"
 AudioPlayer="*res://src/singletons/AudioPlayer.gd"
+
+[boot]
+
+use_filter=false
 
 [display]
 
