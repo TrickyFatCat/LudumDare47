@@ -6,6 +6,8 @@ class_name BaseLevel
 const LOAD_DEALAY_TIME : float = 0.5
 const YSORT_NODE_NAME : String = "Objects"
 
+export(int) var level_id := -1
+
 var objects_node : YSort
 var projectiles_parent : Node
 var enemy_parent : Node
