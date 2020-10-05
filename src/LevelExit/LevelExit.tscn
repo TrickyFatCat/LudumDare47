@@ -28,6 +28,8 @@ is_interactable = true
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+z_index = -2
+z_as_relative = false
 frames = SubResource( 2 )
-frame = 3
+frame = 4
 playing = true

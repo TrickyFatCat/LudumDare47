@@ -19,6 +19,7 @@ func ready() -> void:
 	connect("death", self, "on_death")
 	Events.connect("player_heal", self, "_process_heal")
 	Events.connect("restore_ammo", self, "_restore_ammo")
+	Events.connect("level_finished", self, "_transition_to_inacitve")
 	pass
 
 
@@ -48,7 +49,6 @@ func _on_hitpoints_decreased() -> void:
 	Events.emit_signal("shake_camera")
 	sprite.set_flash_color(Color.red)
 	sprite.start_flash(true)
-
 	pass
 
 
@@ -88,3 +88,9 @@ func _restore_ammo(ammo_id: int, number: int) -> void:
 	weaponController.increase_ammo_current(ammo_id, number)
 	sprite.set_flash_color(Color.orange)
 	sprite.start_flash(true)
+
+
+func _transition_to_inacitve() -> void:
+	stateMachine.set_process_unhandled_input(false)
+	switch_logic(false)
+	weaponController.is_active = false

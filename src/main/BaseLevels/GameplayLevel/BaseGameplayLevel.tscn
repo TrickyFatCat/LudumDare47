@@ -24,6 +24,9 @@ z_index = -4
 cell_size = Vector2( 16, 16 )
 format = 1
 
+[node name="LevelExit" parent="." instance=ExtResource( 7 )]
+z_as_relative = false
+
 [node name="Spawners" type="Node" parent="."]
 
 [node name="Wall" type="TileMap" parent="."]
@@ -43,8 +46,6 @@ format = 1
 [node name="FloorObjects" type="Node2D" parent="."]
 
 [node name="Objects" type="YSort" parent="."]
-
-[node name="LevelExit" parent="Objects" instance=ExtResource( 7 )]
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
 

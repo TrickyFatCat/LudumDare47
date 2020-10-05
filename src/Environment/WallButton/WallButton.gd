@@ -17,6 +17,7 @@ func _ready() -> void:
 func _on_activation() -> void:
 	emit_signal("switched_on")
 	sprite.play("green")
+	AudioPlayer.play("res://sounds/sfx_button.wav")
 
 	if is_oneshot:
 		$PlayerTrigger.set_process_unhandled_input(false)
@@ -25,3 +26,4 @@ func _on_activation() -> void:
 func _on_deactivation() -> void:
 	emit_signal("switched_off")
 	sprite.play("red")
+	AudioPlayer.play("res://sounds/sfx_button.wav")

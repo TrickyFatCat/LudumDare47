@@ -62,4 +62,3 @@ func _open_menu_finish() -> void:
 	is_pause_blocked = true
 	menuFinish.open_menu()
 	dataPanelPlayer.is_active = false
-	Utility.pause_game()
