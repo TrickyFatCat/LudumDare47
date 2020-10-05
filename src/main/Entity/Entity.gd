@@ -121,4 +121,4 @@ func _decrease_hitpoints(damage: int) -> void:
 
 
 func _increase_hitpoints(heal: int) -> void:
-	hitPoints.increase_value(heal)
+	hitPoints.increase_value_limited(heal)
