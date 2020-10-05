@@ -9,3 +9,4 @@ stream = ExtResource( 2 )
 volume_db = -80.0
 autoplay = true
 script = ExtResource( 1 )
+target_volume = -10.0
