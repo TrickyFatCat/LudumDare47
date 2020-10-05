@@ -35,6 +35,10 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
+	if owner.wandering_distance == 0:
+		stateMachine.transition_to("Attack")
+		return
+	
 	chase_target()
 	owner.sprite.play("run")
 	return
@@ -47,7 +51,7 @@ func exit() -> void:
 func chase_target() -> void:
 	target_point.x = owner.global_position.x + rand_range(-owner.wandering_distance, owner.wandering_distance)
 	target_point.y = owner.global_position.y + rand_range(-owner.wandering_distance, owner.wandering_distance)
-	path = navigation.get_simple_path(owner.global_position, navigation.get_closest_point(target_point), false)
+	path = navigation.get_simple_path(owner.global_position, navigation.get_closest_point(target_point), true)
 	owner.get_node("Line2D").points = path
 	owner.get_node("Line2D").set_as_toplevel(true)
 	pass

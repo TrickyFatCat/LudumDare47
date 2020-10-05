@@ -68,7 +68,7 @@ extents = Vector2( 8, 10 )
 hitpoints_max = 120
 velocity_max = 2000.0
 attack_distance = 128.0
-wandering_distance = 16.0
+wandering_distance = 0.0
 attack_pause = 1.5
 
 [node name="AnimatedSprite" parent="." index="2"]
