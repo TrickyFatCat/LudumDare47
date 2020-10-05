@@ -289,7 +289,7 @@ texture = ExtResource( 5 )
 position = Vector2( 112, 288 )
 
 [node name="Player" parent="Objects" index="1"]
-position = Vector2( 432, 768 )
+position = Vector2( 752, 632 )
 
 [node name="Computer" parent="Objects/Environment" index="0" instance=ExtResource( 8 )]
 position = Vector2( 688, 640 )
