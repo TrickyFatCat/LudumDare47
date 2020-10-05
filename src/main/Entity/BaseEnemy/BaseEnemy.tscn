@@ -62,15 +62,15 @@ animations = [ {
 "name": "idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 28 ) ],
-"loop": false,
-"name": "spawn",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "run",
 "speed": 14.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "spawn",
+"speed": 12.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -82,6 +82,7 @@ resource_local_to_scene = true
 extents = Vector2( 4, 6 )
 
 [node name="BaseEnemy" type="KinematicBody2D"]
+rotation = -0.00371221
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 5 )
@@ -100,7 +101,7 @@ material = SubResource( 2 )
 position = Vector2( 0, -8 )
 scale = Vector2( 1, 1 )
 frames = SubResource( 3 )
-animation = "spawn"
+animation = "idle"
 
 [node name="WeaponController" type="Node2D" parent="."]
 position = Vector2( 0, -6 )

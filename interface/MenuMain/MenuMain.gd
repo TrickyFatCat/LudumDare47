@@ -15,8 +15,8 @@ func _ready() -> void:
 	menuConfirm.connect("yes_pressed", self, "_confirm_action")
 	menuConfirm.connect("no_pressed", self, "_decline_action")
 	$Buttons/ButtonStart.connect("button_up", self, "_button_start_pressed")
-	$Buttons/ButtonHelp.connect("button_up", self, "_button_help_pressed")
-	$Buttons/ButtonCredits.connect("button_up", self, "_button_credits_pressed")
+	# $Buttons/ButtonHelp.connect("button_up", self, "_button_help_pressed")
+	# $Buttons/ButtonCredits.connect("button_up", self, "_button_credits_pressed")
 	$Buttons/ButtonQuit.connect("button_up", self, "_button_quit_pressed")
 	
 

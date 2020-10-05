@@ -3,7 +3,6 @@
 [ext_resource path="res://src/main/BaseExplosion/BaseExplosion.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-resource_local_to_scene = true
 radius = 21.0238
 
 [node name="BaseExplosion" type="Area2D"]
