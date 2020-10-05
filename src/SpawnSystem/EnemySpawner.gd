@@ -1,5 +1,8 @@
 extends Node
 
+signal wave_started
+signal wave_finished
+
 const ENEMY_SCENES : Array = [
 	preload("res://content/Enemies/EnemyKamikaze.tscn"),
 	preload("res://content/Enemies/Imp.tscn"),
@@ -60,17 +63,14 @@ func _ready() -> void:
 
 
 func start_spawn() -> void:
-	print_debug("spawn_started")
 	if enemy_data.empty():
-		timer.stop()
 		return
 	
+	emit_signal("wave_started")
 	var count_sum = 0
 
 	for data in enemy_data:
 		count_sum += data[1]
-
-	print_debug("Count_sum: ", count_sum)
 
 	if count_sum < spawn_number:
 		spawn_number -= spawn_number - count_sum
@@ -79,7 +79,6 @@ func start_spawn() -> void:
 		var data_index = randi() % enemy_data.size() if enemy_data.size() > 1 else 0
 		var enemy_id = -1
 		enemy_id = enemy_data[data_index][0]
-		print_debug("Enemy id: ", enemy_id)
 
 		var spawn_point = null
 
@@ -87,7 +86,6 @@ func start_spawn() -> void:
 			spawn_point = spawn_points[randi() % spawn_points.size()]
 
 			if not spawn_point.visible:
-				print_debug("spawn_point", spawn_point.name)
 				break
 		
 		var enemy_instance = ENEMY_SCENES[enemy_id].instance()
@@ -99,6 +97,10 @@ func start_spawn() -> void:
 
 		if enemy_data[data_index][1] <= 0:
 			enemy_data.remove(data_index)
+	
+	if enemy_data.empty():
+		timer.stop()
+		emit_signal("wave_finished")
 
 	timer.start()
 		
