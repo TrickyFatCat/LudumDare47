@@ -1,23 +1,33 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/LevelExit/LevelExit.gd" type="Script" id=1]
+[ext_resource path="res://assets/LevelExit/spr_level_exit_01.png" type="Texture" id=2]
+[ext_resource path="res://assets/LevelExit/spr_level_exit_05.png" type="Texture" id=3]
+[ext_resource path="res://assets/LevelExit/spr_level_exit_00.png" type="Texture" id=4]
+[ext_resource path="res://assets/LevelExit/spr_level_exit_04.png" type="Texture" id=5]
+[ext_resource path="res://assets/LevelExit/spr_level_exit_02.png" type="Texture" id=6]
+[ext_resource path="res://assets/LevelExit/spr_level_exit_03.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
 
 [node name="LevelExit" type="Area2D"]
 script = ExtResource( 1 )
 is_oneshot = true
 is_interactable = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -16.0
-margin_top = -32.0
-margin_right = 16.0
-color = Color( 0.898039, 1, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+frame = 3
+playing = true

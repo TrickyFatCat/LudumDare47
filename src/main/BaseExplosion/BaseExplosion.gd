@@ -15,4 +15,5 @@ func _on_AnimatedSprite_animation_finished() -> void:
 	
 func _ready() -> void:
 	$AnimatedSprite.play()
+	$Sound.play()
 	# TODO Delete this test code

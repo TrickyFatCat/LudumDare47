@@ -165,6 +165,8 @@ spawner_node = NodePath("../EnemySpawner2")
 door_nodes = [ NodePath("../../Objects/Doors/Door6"), NodePath("../../Objects/Doors/Door14") ]
 
 [node name="EnemySpawner3" parent="Spawners" index="4" instance=ExtResource( 17 )]
+spawn_number = 2
+enemy_count = [ 15, 10, 5, 3 ]
 
 [node name="SpawnPoint" parent="Spawners/EnemySpawner3" index="1" instance=ExtResource( 18 )]
 position = Vector2( 1104, 352 )
@@ -458,10 +460,10 @@ position = Vector2( 1312, 384 )
 texture = ExtResource( 5 )
 
 [node name="LevelExit" parent="Objects" index="0"]
-position = Vector2( 112, 288 )
+position = Vector2( 96, 272 )
 
 [node name="Player" parent="Objects" index="1"]
-position = Vector2( 752, 632 )
+position = Vector2( 448, 768 )
 
 [node name="Computer" parent="Objects/Environment" index="0" instance=ExtResource( 8 )]
 position = Vector2( 688, 640 )

@@ -2,6 +2,10 @@
 
 extends EntitySubMove
 
+func _ready() -> void:
+	yield(owner, "ready")
+	owner.sprite.connect("animation_finished", self, "_play_sound")
+
 
 func unhandled_input(event: InputEvent) -> void:
 	state_move.unhandled_input(event)
@@ -23,3 +27,8 @@ func enter(msg: Dictionary = {}) -> void:
 
 func exit() -> void:
 	state_move.exit()
+
+
+func _play_sound() -> void:
+	if owner.sprite.animation == "run":
+		AudioPlayer.play("res://sounds/sfx_player_step.wav")

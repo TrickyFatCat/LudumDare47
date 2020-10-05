@@ -27,7 +27,6 @@ extents = Vector2( 16, 15 )
 collision_layer = 4
 collision_mask = 56
 script = ExtResource( 3 )
-is_locked = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -16 )
@@ -38,7 +37,6 @@ animation = "closed"
 visible = false
 position = Vector2( 0, -7 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

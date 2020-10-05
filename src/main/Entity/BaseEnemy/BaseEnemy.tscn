@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://src/DamageDetector/DamageDetector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/SpritesWithFlash/Animated/AnimatedSpriteFlash.tscn" type="PackedScene" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_01.png" type="Texture" id=32]
 [ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_02.png" type="Texture" id=33]
 [ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_00.png" type="Texture" id=34]
+[ext_resource path="res://sounds/sfx_enemy_death.wav" type="AudioStream" id=35]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -164,6 +165,14 @@ script = ExtResource( 25 )
 [node name="Timer" type="Timer" parent="StateMachine/Attack"]
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 width = 4.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 35 )
+max_distance = 256.0
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+max_distance = 256.0
 
 [editable path="DamageDetector"]

@@ -40,6 +40,7 @@ func _open() -> void:
 	animation_previous = "closed"
 	sprite.play("opening")
 	collision.set_deferred("disabled", true)
+	AudioPlayer.play("res://sounds/sfx_door_open.wav")
 	
 	
 func _close() -> void:
@@ -55,6 +56,7 @@ func _close() -> void:
 	animation_previous = "opened"
 	sprite.play("closing")
 	collision.set_deferred("disabled", false)
+	AudioPlayer.play("res://sounds/sfx_door_open.wav")
 	
 
 

@@ -71,12 +71,12 @@ func _death_ended() -> void:
 	pass
 
 
-
 func get_scent_trail() -> Array:
 	return $ScentSpawner.scent_trail
 
 
 func _process_heal(heal: int) -> void:
+	AudioPlayer.play("res://sounds/sfx_pickup_medkit.wav")
 	_increase_hitpoints(heal)
 	sprite.set_flash_color(Color.green)
 	sprite.start_flash(true)
@@ -84,6 +84,7 @@ func _process_heal(heal: int) -> void:
 
 
 func _restore_ammo(ammo_id: int, number: int) -> void:
+	AudioPlayer.play("res://sounds/sfx_pickup_ammo.wav")
 	weaponController.increase_ammo_current(ammo_id, number)
 	sprite.set_flash_color(Color.orange)
 	sprite.start_flash(true)

@@ -68,6 +68,7 @@ func _on_zero_hitpoints() -> void:
 	# TODO add logic on zero hitpoints
 	# TODO rework this code
 	stateMachine.transition_to("Death")
+	$Death.play()
 	pass
 
 
@@ -94,6 +95,7 @@ func _on_player_lost() -> void:
 
 func shoot() -> void:
 	weaponController.weapon.process_shoot()
+	$Attack.play()
 
 
 func aim_to(target: Vector2) -> void:
