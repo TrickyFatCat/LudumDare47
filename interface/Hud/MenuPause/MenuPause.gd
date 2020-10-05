@@ -15,7 +15,6 @@ onready var menuConfirm := $MenuConfirm
 
 func _ready() -> void:
 	$Menu/MenuBody/Buttons/ButtonResume.connect("button_up", self, "_on_resume_up")
-	$Menu/MenuBody/Buttons/ButtonHelp.connect("button_up", self, "_on_help_up")
 	$Menu/MenuBody/Buttons/ButtonExit.connect("button_up", self, "_on_exit_up")
 	_set_menu_buttons($Menu/MenuBody/Buttons)
 	menuConfirm.connect("yes_pressed", self, "_confirm_action")

@@ -13,11 +13,8 @@ script = ExtResource( 2 )
 [node name="DataPanelPlayer" parent="." instance=ExtResource( 3 )]
 
 [node name="MenuPause" parent="." instance=ExtResource( 1 )]
-visible = false
 
 [node name="MenuGameOver" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [node name="MenuFinish" parent="." instance=ExtResource( 4 )]
-visible = false
 is_active = false

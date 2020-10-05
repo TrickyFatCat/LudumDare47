@@ -103,6 +103,7 @@ script = ExtResource( 11 )
 
 [node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource( 10 )
+dash_cooldown = 2.0
 
 [node name="Idle" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 13 )
