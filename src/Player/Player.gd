@@ -16,6 +16,7 @@ func switch_logic(value: bool) -> void:
 
 func ready() -> void:
 	# TODO add ready logic for the player character
+	connect("death", self, "on_death")
 	Events.connect("player_heal", self, "_process_heal")
 	Events.connect("restore_ammo", self, "_restore_ammo")
 	pass
@@ -52,9 +53,21 @@ func _on_hitpoints_decreased() -> void:
 func _on_zero_hitpoints() -> void:
 	# TODO add logic on zero hitpoints
 	Events.emit_signal("player_dead")
-	self.is_active = false
 	stateMachine.transition_to("Death")
 	pass
+
+func on_death() -> void:
+	$Shadow.visible = false
+	weaponController.visible = false
+	sprite.connect("animation_finished", self, "_death_ended", [], CONNECT_ONESHOT)
+	sprite.offset.y = -20
+	sprite.play("death")
+
+func _death_ended() -> void:
+	self.is_active = false
+	Events.emit_signal("show_gameover")
+	pass
+
 
 
 func get_scent_trail() -> Array:

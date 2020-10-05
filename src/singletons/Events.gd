@@ -23,6 +23,7 @@ signal open_menu_pause()
 signal close_menu_pause()
 signal menu_pause_opened()
 signal menu_pause_closed()
+signal show_gameover()
 
 # Transition signals
 signal transition_started()

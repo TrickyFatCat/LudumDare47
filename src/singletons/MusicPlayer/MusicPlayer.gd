@@ -12,6 +12,7 @@ func _init() -> void:
 func _ready() -> void:
 	Events.connect("transition_started", self, "set_process", [true])
 	Events.connect("transition_stopped", self, "set_process", [false])
+	play()
 	pass
 
 

@@ -10,11 +10,11 @@
 [ext_resource path="res://src/DamageDetector/DamageDetector.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Player/WeaponController/PlayerWeaponController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Player/StateMachine/PlayerMove.gd" type="Script" id=10]
+[ext_resource path="res://src/main/Entity/BaseEnemy/StateMachine/EnemyDeath.gd" type="Script" id=11]
 [ext_resource path="res://src/Player/StateMachine/PlayerRun.gd" type="Script" id=12]
 [ext_resource path="res://src/Player/StateMachine/PlayerIdle.gd" type="Script" id=13]
 [ext_resource path="res://src/main/Entity/BaseStates/EntitiyInactive.gd" type="Script" id=14]
 [ext_resource path="res://src/Player/StateMachine/PlayerDash.gd" type="Script" id=15]
-[ext_resource path="res://src/main/Entity/BaseStates/EntityDeath.gd" type="Script" id=16]
 [ext_resource path="res://src/main/Entity/BaseStates/EntitySpawn.gd" type="Script" id=17]
 [ext_resource path="res://src/main/Entity/BaseStates/EntityDespawn.gd" type="Script" id=18]
 [ext_resource path="res://src/Shadow/Shadow.tscn" type="PackedScene" id=19]
@@ -60,6 +60,7 @@ material = SubResource( 2 )
 position = Vector2( 0, -8 )
 scale = Vector2( 1, 1 )
 frames = ExtResource( 3 )
+animation = "run"
 
 [node name="WeaponController" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, -6 )
@@ -96,7 +97,9 @@ script = ExtResource( 17 )
 script = ExtResource( 18 )
 
 [node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource( 16 )
+script = ExtResource( 11 )
+
+[node name="Tween" type="Tween" parent="StateMachine/Death"]
 
 [node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource( 10 )

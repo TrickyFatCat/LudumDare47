@@ -29,9 +29,9 @@
 
 [sub_resource type="NavigationPolygon" id=1]
 resource_local_to_scene = true
-vertices = PoolVector2Array( 20, 312, 64, 280, 88, 276, 136, 276, 296, 312, 36, 280, 20, 40, 36, 252, 296, 40, 136, 248, 88, 248, 64, 252 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 1, 0 ), PoolIntArray( 5, 0, 6, 7 ), PoolIntArray( 8, 4, 3, 9 ), PoolIntArray( 6, 8, 9, 10 ), PoolIntArray( 7, 6, 10, 11 ), PoolIntArray( 11, 10, 2, 1 ) ]
-outlines = [ PoolVector2Array( 20, 40, 296, 40, 296, 312, 20, 312 ), PoolVector2Array( 88, 248, 88, 276, 136, 276, 136, 248 ), PoolVector2Array( 36, 252, 36, 280, 64, 280, 64, 252 ) ]
+vertices = PoolVector2Array( 20, 312, 64, 280, 88, 276, 136, 276, 296, 312, 36, 280, 20, 176, 36, 252, 296, 175.969, 136, 248, 112, 176, 88, 248, 64, 252, 80, 176, 80, 144, 112, 144, 20, 144, 20, 40, 296, 40, 296, 144 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 1, 0 ), PoolIntArray( 5, 0, 6, 7 ), PoolIntArray( 8, 4, 3, 9 ), PoolIntArray( 10, 8, 9, 11 ), PoolIntArray( 12, 7, 6, 13, 11 ), PoolIntArray( 2, 1, 12, 11 ), PoolIntArray( 10, 11, 13, 14, 15 ), PoolIntArray( 16, 17, 18, 14 ), PoolIntArray( 18, 19, 15 ), PoolIntArray( 14, 18, 15 ) ]
+outlines = [ PoolVector2Array( 20, 40, 296, 40, 296, 144, 112, 144, 112, 176, 296, 175.969, 296, 312, 20, 312, 20, 176, 80, 176, 80, 144, 20, 144 ), PoolVector2Array( 88, 248, 88, 276, 136, 276, 136, 248 ), PoolVector2Array( 36, 252, 36, 280, 64, 280, 64, 252 ) ]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 level_id = 3
@@ -109,7 +109,7 @@ position = Vector2( 160, 96 )
 [node name="EmptyPit" parent="FloorObjects" index="1" instance=ExtResource( 6 )]
 position = Vector2( 240, 96 )
 
-[node name="Player" parent="Objects" index="0"]
+[node name="Player" parent="Objects" index="1"]
 position = Vector2( 56, 109 )
 
 [node name="Computer" parent="Objects/Environment" index="0" instance=ExtResource( 4 )]
@@ -137,12 +137,14 @@ position = Vector2( 202, 300 )
 
 [node name="Door" parent="Objects/Doors/DoorWithButton" index="0"]
 position = Vector2( 256, 176 )
+is_auto = true
 
 [node name="WallButton" parent="Objects/Doors/DoorWithButton" index="1"]
 position = Vector2( 208, 176 )
 
 [node name="Door" parent="Objects/Doors" index="1" instance=ExtResource( 10 )]
 position = Vector2( 96, 176 )
+is_locked = false
 is_auto = false
 
 [node name="MedKit" parent="Objects/Pickups" index="0" instance=ExtResource( 13 )]
@@ -151,23 +153,15 @@ is_interactable = true
 
 [node name="CrateShell" parent="Objects/Pickups" index="1" instance=ExtResource( 14 )]
 position = Vector2( 64, 224 )
-collision_layer = 128
-collision_mask = 2147483649
 
 [node name="CrateBullet" parent="Objects/Pickups" index="2" instance=ExtResource( 16 )]
 position = Vector2( 112, 224 )
-collision_layer = 128
-collision_mask = 2147483649
 
 [node name="CrateEnergy" parent="Objects/Pickups" index="3" instance=ExtResource( 17 )]
 position = Vector2( 160, 224 )
-collision_layer = 128
-collision_mask = 2147483649
 
 [node name="CrateRocket" parent="Objects/Pickups" index="4" instance=ExtResource( 15 )]
 position = Vector2( 208, 224 )
-collision_layer = 128
-collision_mask = 2147483649
 
 [node name="Ceiling" parent="." index="9"]
 tile_data = PoolIntArray( 0, 5, 2, 1, 5, 4, 2, 5, 4, 3, 5, 4, 4, 5, 4, 5, 5, 4, 6, 5, 4, 7, 5, 4, 8, 5, 4, 9, 5, 4, 10, 5, 4, 11, 5, 4, 12, 5, 4, 13, 5, 4, 14, 5, 4, 15, 5, 4, 16, 5, 4, 17, 5, 4, 18, 5, 4, 19, 5, 3, 65536, 5, 5, 65555, 5, 5, 131072, 5, 5, 131091, 5, 5, 196608, 5, 5, 196627, 5, 5, 262144, 5, 5, 262163, 5, 5, 327680, 5, 5, 327699, 5, 5, 393216, 5, 5, 393235, 5, 5, 458752, 5, 5, 458771, 5, 5, 524288, 5, 5, 524307, 5, 5, 589824, 5, 65536, 589825, 5, 4, 589826, 5, 4, 589827, 5, 4, 589828, 5, 65541, 589831, 5, 65540, 589832, 5, 4, 589833, 5, 4, 589834, 5, 4, 589835, 5, 4, 589836, 5, 4, 589837, 5, 4, 589838, 5, 65541, 589841, 5, 65540, 589842, 5, 4, 589843, 5, 1, 655360, 5, 5, 655377, 1, 0, 655378, 1, 0, 655379, 5, 5, 720896, 5, 5, 720915, 5, 5, 786432, 5, 5, 786451, 5, 5, 851968, 5, 5, 851987, 5, 5, 917504, 5, 5, 917523, 5, 5, 983040, 5, 5, 983059, 5, 5, 1048576, 5, 5, 1048595, 5, 5, 1114112, 5, 5, 1114131, 5, 5, 1179648, 5, 5, 1179667, 5, 5, 1245184, 5, 5, 1245203, 5, 5, 1310720, 5, 65538, 1310721, 5, 4, 1310722, 5, 4, 1310723, 5, 4, 1310724, 5, 4, 1310725, 5, 4, 1310726, 5, 4, 1310727, 5, 4, 1310728, 5, 4, 1310729, 5, 4, 1310730, 5, 4, 1310731, 5, 4, 1310732, 5, 4, 1310733, 5, 4, 1310734, 5, 4, 1310735, 5, 4, 1310736, 5, 4, 1310737, 5, 4, 1310738, 5, 4, 1310739, 5, 65539, 1376256, 2, 0, 1376257, 2, 0, 1376258, 2, 0, 1376259, 2, 0, 1376260, 2, 0, 1376261, 2, 0, 1376262, 2, 0, 1376263, 2, 0, 1376264, 2, 0, 1376265, 2, 0, 1376266, 2, 0, 1376267, 2, 0, 1376268, 2, 0, 1376269, 2, 0, 1376270, 2, 0, 1376271, 2, 0, 1376272, 2, 0, 1376273, 2, 0, 1376274, 2, 0, 1376275, 2, 0 )

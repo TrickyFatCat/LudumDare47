@@ -15,10 +15,10 @@ var ammo_cost_current : int = 0
 
 # Array of ammo arrays. Ammo array contains 2 numbers 0 - current ammo, 1 - max ammo
 var ammo : Array = [
-	[10, 10],
-	[10, 15],
-	[10, 20],
-	[10, 25]
+	[30, 60],
+	[15, 30],
+	[40, 80],
+	[10, 20]
 ]
 # Array of weapon slots arrays. Weapon slot array contains 0 - weapon index, 1 - slock is unlocked
 # TODO think about a better implementation and add some kind of check for bad data

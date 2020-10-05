@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 frames = ExtResource( 2 )
 motion_type = 0
-velocity_initial = 4.0
+velocity_initial = 2.0
 velocity_max = 100.0
 acceleration = 100.0
 friction = 200.0

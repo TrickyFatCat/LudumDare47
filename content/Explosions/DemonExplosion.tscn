@@ -8,6 +8,7 @@ resource_local_to_scene = true
 radius = 48.0
 
 [node name="KamikazeExplosion" instance=ExtResource( 1 )]
+damage = 20
 
 [node name="AnimatedSprite" parent="." index="0"]
 position = Vector2( 0, 0 )

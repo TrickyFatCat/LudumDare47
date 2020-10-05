@@ -7,7 +7,6 @@ resource_local_to_scene = true
 radius = 21.0238
 
 [node name="BaseExplosion" type="Area2D"]
-monitorable = false
 collision_layer = 32
 collision_mask = 3
 script = ExtResource( 1 )

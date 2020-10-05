@@ -29,7 +29,7 @@ func _ready() -> void:
 	Events.connect("restart_level", self, "_deactivate_input")    
 	Events.connect("level_exit", self, "_deactivate_input")   
 	Events.connect("level_finished", self, "_deactivate_input")
-	Events.connect("player_dead", self, "_open_menu_gameover")
+	Events.connect("show_gameover", self, "_open_menu_gameover")
 	Events.connect("level_finished", self, "_open_menu_finish")
 
 

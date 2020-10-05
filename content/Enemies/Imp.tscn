@@ -44,15 +44,15 @@ animations = [ {
 "name": "idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "run",
-"speed": 14.0
-}, {
 "frames": [ ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "spawn",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 14.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -64,10 +64,11 @@ resource_local_to_scene = true
 extents = Vector2( 4, 6 )
 
 [node name="Imp" instance=ExtResource( 1 )]
+hitpoints_max = 60
 velocity_max = 4000.0
 attack_distance = 256.0
-shot_number_max = 2
-attack_pause = 1.0
+shot_number_max = 4
+attack_pause = 1.5
 
 [node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )

@@ -45,14 +45,14 @@ animations = [ {
 "name": "idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "run",
-"speed": 14.0
-}, {
 "frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": false,
 "name": "spawn",
+"speed": 14.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "run",
 "speed": 14.0
 } ]
 
@@ -65,13 +65,11 @@ resource_local_to_scene = true
 extents = Vector2( 8, 10 )
 
 [node name="Demon" instance=ExtResource( 1 )]
-hitpoints_max = 200
-hitpoints_initial = 200
+hitpoints_max = 120
 velocity_max = 2000.0
 attack_distance = 128.0
-wandering_distance = 8.0
-shot_number_max = 1
-attack_pause = 2.0
+wandering_distance = 16.0
+attack_pause = 1.5
 
 [node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )
