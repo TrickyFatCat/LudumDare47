@@ -49,6 +49,7 @@ func _ready() -> void:
 			spawn_points.append(child)
 	
 	yield(GameManager.current_level, "ready")
+	start_spawn()
 
 
 func start_spawn() -> void:

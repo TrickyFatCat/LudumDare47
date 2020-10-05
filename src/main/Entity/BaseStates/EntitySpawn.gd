@@ -17,6 +17,8 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
+	owner.sprite.connect("animation_finished", self, "to_idle", [], CONNECT_ONESHOT)
+	owner.sprite.play("spawn")
 	#* Here you can write logic which will be called on entering state
 	pass
 
@@ -24,3 +26,11 @@ func enter(msg: Dictionary = {}) -> void:
 func exit() -> void:
 	owner.emit_signal("spawn")
 	pass
+
+
+func to_idle() -> void:
+	if owner.is_weapon_visible:
+		owner.show_weapon()
+	owner.sprite.play("idle")
+	yield(get_tree().create_timer(1), "timeout")
+	stateMachine.transition_to("Move/Idle")

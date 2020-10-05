@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/main/Entity/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_imp_idle_02.png" type="Texture" id=2]
@@ -9,6 +9,13 @@
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_imp_idle_00.png" type="Texture" id=7]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_imp_run_03.png" type="Texture" id=8]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_imp_run_02.png" type="Texture" id=9]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_06.png" type="Texture" id=10]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_04.png" type="Texture" id=11]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_03.png" type="Texture" id=12]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_05.png" type="Texture" id=13]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_01.png" type="Texture" id=14]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_02.png" type="Texture" id=15]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_00.png" type="Texture" id=16]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -36,6 +43,11 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "spawn",
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 8 ) ],
 "loop": true,
@@ -68,18 +80,12 @@ position = Vector2( 0, -9 )
 is_active = true
 weapon_parameters = "res://content/Weapons/Enemy/ImpGun.tres"
 
-[node name="BaseWeapon" parent="WeaponController" index="0"]
-visible = false
-
 [node name="CollisionShape2D" parent="." index="4"]
 shape = SubResource( 4 )
 
 [node name="Collision" parent="DamageDetector" index="0"]
 position = Vector2( 0, -8 )
 shape = SubResource( 5 )
-
-[node name="StateMachine" parent="." index="7"]
-initial_state = NodePath("../../Imp/StateMachine/Move/Idle")
 
 [node name="Timer" parent="StateMachine/Attack" index="0"]
 one_shot = true

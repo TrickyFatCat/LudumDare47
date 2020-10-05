@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/main/Entity/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_idle_03.png" type="Texture" id=2]
@@ -10,6 +10,13 @@
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_idle_02.png" type="Texture" id=8]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_03.png" type="Texture" id=9]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_zombie_run_04.png" type="Texture" id=10]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_06.png" type="Texture" id=11]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_04.png" type="Texture" id=12]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_03.png" type="Texture" id=13]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_05.png" type="Texture" id=14]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_01.png" type="Texture" id=15]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_02.png" type="Texture" id=16]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_enemy_00.png" type="Texture" id=17]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -38,6 +45,11 @@ animations = [ {
 "name": "idle",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 11 ), null ],
+"loop": false,
+"name": "spawn",
+"speed": 12.0
+}, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "run",
@@ -56,6 +68,7 @@ extents = Vector2( 4, 6 )
 velocity_max = 6000.0
 shot_number_max = 1
 attack_pause = 2.0
+is_weapon_visible = true
 
 [node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 2 )
@@ -64,6 +77,9 @@ frames = SubResource( 3 )
 [node name="WeaponController" parent="." index="3"]
 is_active = true
 weapon_parameters = "res://content/Weapons/Enemy/ZombieShotgun.tres"
+
+[node name="BaseWeapon" parent="WeaponController" index="0"]
+visible = true
 
 [node name="CollisionShape2D" parent="." index="4"]
 shape = SubResource( 4 )

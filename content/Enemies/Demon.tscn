@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/main/Entity/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_idle_00.png" type="Texture" id=2]
@@ -9,6 +9,14 @@
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_run_03.png" type="Texture" id=7]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_run_01.png" type="Texture" id=8]
 [ext_resource path="res://assets/SpritesEnemies/spr_enemy_demon_run_00.png" type="Texture" id=9]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_04.png" type="Texture" id=10]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_00.png" type="Texture" id=11]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_05.png" type="Texture" id=12]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_02.png" type="Texture" id=13]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_03.png" type="Texture" id=14]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_01.png" type="Texture" id=15]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_06.png" type="Texture" id=16]
+[ext_resource path="res://assets/SpritesExplosions/spr_explosion_rocket_07.png" type="Texture" id=17]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -37,6 +45,11 @@ animations = [ {
 "name": "idle",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "spawn",
+"speed": 12.0
+}, {
 "frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "run",
@@ -62,15 +75,11 @@ attack_pause = 2.0
 material = SubResource( 2 )
 position = Vector2( 0, -18 )
 frames = SubResource( 3 )
-frame = 1
 
 [node name="WeaponController" parent="." index="3"]
 position = Vector2( 0, -13 )
 is_active = true
 weapon_parameters = "res://content/Weapons/Enemy/DemonGun.tres"
-
-[node name="BaseWeapon" parent="WeaponController" index="0"]
-visible = false
 
 [node name="CollisionShape2D" parent="." index="4"]
 position = Vector2( 0, -8 )
@@ -79,9 +88,6 @@ shape = SubResource( 4 )
 [node name="Collision" parent="DamageDetector" index="0"]
 position = Vector2( 0, -11 )
 shape = SubResource( 5 )
-
-[node name="StateMachine" parent="." index="7"]
-initial_state = NodePath("../../Demon/StateMachine/Move/Idle")
 
 [node name="Timer" parent="StateMachine/Attack" index="0"]
 one_shot = true

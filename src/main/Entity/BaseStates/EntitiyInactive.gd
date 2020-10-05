@@ -12,9 +12,11 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	owner.is_active = false
+	exit()
 	pass
 
 
 func exit() -> void:
+	owner.is_active = true
 	pass
 

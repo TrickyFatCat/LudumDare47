@@ -11,6 +11,7 @@ export(int)  var shot_number_max := 3
 export(float) var attack_pause : = 4.0
 export(String, FILE, "*.tscn") var scene_to_spawn : String
 export(int) var number_of_scenes := 1
+export(bool) var is_weapon_visible := false
 
 var player_detected : bool = false
 
@@ -18,6 +19,7 @@ onready var lineOfSight : RayCast2D = $LineOfSight
 
 
 func ready() -> void:
+	hide_weapon()
 	connect("death", self, "on_death")
 	Events.connect("player_dead", stateMachine, "transition_to", ["Move/Idle"])
 	# TODO add ready logic for the base enemy
@@ -26,6 +28,9 @@ func ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if stateMachine.is_current_state("Inactive") or stateMachine.is_current_state("Spawn"):
+		return
+		
 	if player_detected:
 		return
 
@@ -93,3 +98,15 @@ func shoot() -> void:
 
 func aim_to(target: Vector2) -> void:
 	weaponController.look_at(target)
+
+
+func transition_to_spawn() -> void:
+	stateMachine.transition_to("Spawn")
+
+
+func show_weapon() -> void:
+	weaponController.visible = true
+
+
+func hide_weapon() -> void:
+	weaponController.visible = false
