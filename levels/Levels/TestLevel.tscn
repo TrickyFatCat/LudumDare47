@@ -137,14 +137,12 @@ position = Vector2( 202, 300 )
 
 [node name="Door" parent="Objects/Doors/DoorWithButton" index="0"]
 position = Vector2( 256, 176 )
-is_auto = true
 
 [node name="WallButton" parent="Objects/Doors/DoorWithButton" index="1"]
 position = Vector2( 208, 176 )
 
 [node name="Door" parent="Objects/Doors" index="1" instance=ExtResource( 10 )]
 position = Vector2( 96, 176 )
-is_locked = false
 is_auto = false
 
 [node name="MedKit" parent="Objects/Pickups" index="0" instance=ExtResource( 13 )]

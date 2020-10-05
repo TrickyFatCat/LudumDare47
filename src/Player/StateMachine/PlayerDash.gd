@@ -3,6 +3,7 @@
 
 extends EntitySubMove
 
+onready var timer : Timer = $Timer
 
 func unhandled_input(event: InputEvent) -> void:
 	state_move.unhandled_input(event)

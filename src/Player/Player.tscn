@@ -51,7 +51,7 @@ script = ExtResource( 1 )
 velocity_max = 100.0
 acceleration = 2000.0
 friction = 900.0
-dash_velocity = 1500.0
+dash_velocity = 400.0
 
 [node name="Shadow" parent="." instance=ExtResource( 19 )]
 
@@ -112,5 +112,8 @@ script = ExtResource( 15 )
 
 [node name="Stunlock" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="StateMachine/Move"]
+one_shot = true
 
 [editable path="DamageDetector"]
