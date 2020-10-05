@@ -21,7 +21,7 @@ func enter(msg: Dictionary = {}) -> void:
 	owner.sprite.play("spawn")
 	owner.sprite.set_flash_color(Color.white)
 	owner.sprite.start_flash(false)
-	owner.damageDetector.is_active = false
+	owner.damageDetector.call_deferred("_set_is_active", false)
 	#* Here you can write logic which will be called on entering state
 	pass
 
@@ -36,6 +36,6 @@ func to_idle() -> void:
 		owner.show_weapon()
 	owner.sprite.play("idle")
 	yield(get_tree().create_timer(1), "timeout")
-	owner.damageDetector.is_active = true
+	owner.damageDetector.call_deferred("_set_is_active", true)
 	owner.sprite.stop_flash()
 	stateMachine.transition_to("Move/Idle")

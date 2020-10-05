@@ -20,6 +20,7 @@ const PROJECTILE_DEFAULT : String = "res://src/main/BaseProjectile/BaseProjectil
 
 #* General parameters
 var weapon_name : String
+var sound : String
 var is_playing_muzzle : bool
 
 #* Damage parameters
@@ -82,11 +83,14 @@ func process_shoot() -> void:
 	muzzle.play()
 	rofTimer.start()
 	emit_signal("shoot")
+	if sound:
+		AudioPlayer.play(sound)
 
 
 func apply_parameters(parameters: WeaponParameters) -> void:
 	#* General parameters
 	weapon_name = parameters.weapon_name
+	sound = parameters.sound
 	sprite.texture = parameters.sprite
 	sprite.position = parameters.sprite_offset
 	sprite_init_pos = parameters.sprite_offset
@@ -131,8 +135,6 @@ func apply_parameters(parameters: WeaponParameters) -> void:
 
 	#* Move muzzle
 	muzzle.position = spawn_point
-	
-
 
 
 func _spawn_projectile() -> void:

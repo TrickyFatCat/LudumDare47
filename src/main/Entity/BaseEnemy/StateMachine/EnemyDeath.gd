@@ -37,5 +37,6 @@ func enter(msg: Dictionary = {}) -> void:
 
 
 func exit() -> void:
+	AudioPlayer.play("res://sounds/sfx_enemy_death.wav")
 	owner.emit_signal("death")
 	pass

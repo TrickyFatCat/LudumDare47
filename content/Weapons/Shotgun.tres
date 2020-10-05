@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource( 2 )
 weapon_name = "Shotgun"
+sound = "res://sounds/sfx_weapon_shotgun.wav"
 sprite = ExtResource( 1 )
 sprite_offset = Vector2( 3, 0 )
 is_playing_muzzle = true

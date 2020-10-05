@@ -38,6 +38,7 @@ func _on_spawn() -> void:
 
 func _on_get_damage(damage: int) -> void:
 	_decrease_hitpoints(damage)
+	# AudioPlayer.play("res://sounds/sfx_player_wound.wav")
 	# TODO add logic on get damage
 	pass
 
@@ -47,6 +48,7 @@ func _on_hitpoints_decreased() -> void:
 	Events.emit_signal("shake_camera")
 	sprite.set_flash_color(Color.red)
 	sprite.start_flash(true)
+
 	pass
 
 
