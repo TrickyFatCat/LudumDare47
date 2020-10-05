@@ -24,7 +24,9 @@ func unhandled_input(event: InputEvent) -> void:
 func physics_process(delta: float) -> void:
 	_calculate_move_direction()
 	_flip_sprite(move_direction)
-	_calculate_velocity(delta, move_direction)
+	calculate_velocity_x(delta)
+	calculate_velocity_y(delta)
+	# _calculate_velocity(delta, move_direction)
 	_apply_movement()
 
 
@@ -40,3 +42,31 @@ func _calculate_move_direction() -> void:
 	move_direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	move_direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	move_direction = move_direction.normalized()
+
+
+func calculate_velocity_x(delta : float) -> void:
+	if move_direction.x != 0 and abs(velocity.x) <= velocity_max:
+		velocity.x += acceleration * move_direction.x * delta
+		velocity.x = clamp(velocity.x, -velocity_max * abs(move_direction.x), velocity_max * abs(move_direction.x))
+	elif velocity.x != 0 or abs(velocity.y) > velocity_max:
+		var friction_direction = -sign(velocity.x)
+		velocity.x += friction * friction_direction * delta
+		
+		if friction_direction < 0:
+			velocity.x = max(velocity.x, 0)
+		elif friction_direction > 0:
+			velocity.x = min(velocity.x, 0)
+
+
+func calculate_velocity_y(delta : float) -> void:
+	if move_direction.y != 0 and abs(velocity.y) <= velocity_max:
+		velocity.y += acceleration * move_direction.y * delta
+		velocity.y = clamp(velocity.y, -velocity_max * abs(move_direction.y), velocity_max * abs(move_direction.y))
+	elif velocity.y != 0 or abs(velocity.y) > velocity_max:
+		var friction_direction = -sign(velocity.y)
+		velocity.y += friction * friction_direction * delta
+		
+		if friction_direction < 0:
+			velocity.y = max(velocity.y, 0)
+		elif friction_direction > 0:
+			velocity.y = min(velocity.y, 0)
