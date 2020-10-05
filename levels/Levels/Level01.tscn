@@ -176,7 +176,7 @@ spawner_node = NodePath("../EnemySpawner2")
 door_nodes = [ NodePath("../../Objects/Doors/Door6"), NodePath("../../Objects/Doors/Door14") ]
 
 [node name="EnemySpawner3" parent="Spawners" index="4" instance=ExtResource( 17 )]
-spawn_pause = 2.75
+spawn_pause = 3.25
 enemy_count = [ 10, 15, 5, 3 ]
 trigger_node = NodePath("../../Triggers/PlayerTrigger2")
 
