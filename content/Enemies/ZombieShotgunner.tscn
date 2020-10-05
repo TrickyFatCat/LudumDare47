@@ -66,7 +66,6 @@ extents = Vector2( 4, 6 )
 
 [node name="ZombieShotgunner" instance=ExtResource( 1 )]
 hitpoints_max = 50
-hitpoints_initial = 50
 velocity_max = 4000.0
 attack_distance = 128.0
 wandering_distance = 16.0

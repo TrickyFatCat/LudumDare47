@@ -77,3 +77,4 @@ func _on_animation_finished() -> void:
 func set_is_locked(value: bool) -> void:
 	is_locked = value
 	lockSprite.visible = value
+	print("is_locked")

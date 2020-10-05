@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/main/BaseLevels/GameplayLevel/BaseGameplayLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Environment/HazardPit.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://src/SpawnSystem/SpawnPoint.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/SpawnSystem/EnemySpawner.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/PlayerTrigger/PlayerTrigger.tscn" type="PackedScene" id=24]
+[ext_resource path="res://src/DoorLocker/DoorLocker.tscn" type="PackedScene" id=25]
 
 [sub_resource type="NavigationPolygon" id=1]
 resource_local_to_scene = true
@@ -45,7 +46,7 @@ tile_data = PoolIntArray( 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0
 
 [node name="EnemySpawner" parent="." index="2" instance=ExtResource( 23 )]
 spawn_pause = 3
-enemy_count = [ 0, 2, 0, 2 ]
+enemy_count = [ 3, 0, 0, 0 ]
 trigger_node = NodePath("../Wall/Buttons/WallButton")
 
 [node name="SpawnPoint" parent="EnemySpawner" index="1" instance=ExtResource( 22 )]
@@ -78,7 +79,11 @@ position = Vector2( 116, 112 )
 [node name="SpawnPoint10" parent="EnemySpawner" index="10" instance=ExtResource( 22 )]
 position = Vector2( 116, 132 )
 
-[node name="Wall" parent="." index="3"]
+[node name="DoorLocker" parent="." index="3" instance=ExtResource( 25 )]
+spawner_node = NodePath("../EnemySpawner")
+door_nodes = [ NodePath("../Objects/Doors/Door") ]
+
+[node name="Wall" parent="." index="5"]
 tile_data = PoolIntArray( 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 65541, 0, 0, 65544, 2, 0, 65545, 2, 0, 65546, 2, 0, 65547, 2, 0, 65549, 2, 0, 65550, 2, 0, 65551, 2, 0, 65552, 2, 0, 65553, 2, 0, 65554, 2, 0, 655361, 3, 0, 655362, 3, 0, 655363, 3, 0, 655364, 0, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655374, 2, 0 )
 
 [node name="WallMech" parent="Wall/AnimatedWalls" index="0" instance=ExtResource( 7 )]
@@ -130,14 +135,12 @@ position = Vector2( 202, 300 )
 
 [node name="Door" parent="Objects/Doors/DoorWithButton" index="0"]
 position = Vector2( 256, 176 )
-is_auto = true
 
 [node name="WallButton" parent="Objects/Doors/DoorWithButton" index="1"]
 position = Vector2( 208, 176 )
 
 [node name="Door" parent="Objects/Doors" index="1" instance=ExtResource( 10 )]
 position = Vector2( 96, 176 )
-is_locked = false
 is_auto = false
 
 [node name="MedKit" parent="Objects/Pickups" index="0" instance=ExtResource( 13 )]
@@ -164,7 +167,7 @@ position = Vector2( 208, 224 )
 collision_layer = 128
 collision_mask = 2147483649
 
-[node name="Ceiling" parent="." index="7"]
+[node name="Ceiling" parent="." index="9"]
 tile_data = PoolIntArray( 0, 5, 2, 1, 5, 4, 2, 5, 4, 3, 5, 4, 4, 5, 4, 5, 5, 4, 6, 5, 4, 7, 5, 4, 8, 5, 4, 9, 5, 4, 10, 5, 4, 11, 5, 4, 12, 5, 4, 13, 5, 4, 14, 5, 4, 15, 5, 4, 16, 5, 4, 17, 5, 4, 18, 5, 4, 19, 5, 3, 65536, 5, 5, 65555, 5, 5, 131072, 5, 5, 131091, 5, 5, 196608, 5, 5, 196627, 5, 5, 262144, 5, 5, 262163, 5, 5, 327680, 5, 5, 327699, 5, 5, 393216, 5, 5, 393235, 5, 5, 458752, 5, 5, 458771, 5, 5, 524288, 5, 5, 524307, 5, 5, 589824, 5, 65536, 589825, 5, 4, 589826, 5, 4, 589827, 5, 4, 589828, 5, 65541, 589831, 5, 65540, 589832, 5, 4, 589833, 5, 4, 589834, 5, 4, 589835, 5, 4, 589836, 5, 4, 589837, 5, 4, 589838, 5, 65541, 589841, 5, 65540, 589842, 5, 4, 589843, 5, 1, 655360, 5, 5, 655377, 1, 0, 655378, 1, 0, 655379, 5, 5, 720896, 5, 5, 720915, 5, 5, 786432, 5, 5, 786451, 5, 5, 851968, 5, 5, 851987, 5, 5, 917504, 5, 5, 917523, 5, 5, 983040, 5, 5, 983059, 5, 5, 1048576, 5, 5, 1048595, 5, 5, 1114112, 5, 5, 1114131, 5, 5, 1179648, 5, 5, 1179667, 5, 5, 1245184, 5, 5, 1245203, 5, 5, 1310720, 5, 65538, 1310721, 5, 4, 1310722, 5, 4, 1310723, 5, 4, 1310724, 5, 4, 1310725, 5, 4, 1310726, 5, 4, 1310727, 5, 4, 1310728, 5, 4, 1310729, 5, 4, 1310730, 5, 4, 1310731, 5, 4, 1310732, 5, 4, 1310733, 5, 4, 1310734, 5, 4, 1310735, 5, 4, 1310736, 5, 4, 1310737, 5, 4, 1310738, 5, 4, 1310739, 5, 65539, 1376256, 2, 0, 1376257, 2, 0, 1376258, 2, 0, 1376259, 2, 0, 1376260, 2, 0, 1376261, 2, 0, 1376262, 2, 0, 1376263, 2, 0, 1376264, 2, 0, 1376265, 2, 0, 1376266, 2, 0, 1376267, 2, 0, 1376268, 2, 0, 1376269, 2, 0, 1376270, 2, 0, 1376271, 2, 0, 1376272, 2, 0, 1376273, 2, 0, 1376274, 2, 0, 1376275, 2, 0 )
 
 [editable path="Objects/Doors/DoorWithButton"]

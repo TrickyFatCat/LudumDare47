@@ -2,6 +2,7 @@ extends Node
 
 signal wave_started
 signal wave_finished
+signal wave_cleared
 
 const ENEMY_SCENES : Array = [
 	preload("res://content/Enemies/EnemyKamikaze.tscn"),
@@ -27,6 +28,8 @@ var enemy_data : Array = [
 	[3, 0]
 ]
 var spawn_points : Array
+var enemy_counter : int = 0
+var is_finished : bool = false
 
 onready var timer : Timer = $Timer
 
@@ -66,9 +69,10 @@ func start_spawn() -> void:
 	if enemy_data.empty():
 		return
 	
-	emit_signal("wave_started")
-	var count_sum = 0
+	if not is_finished:
+		emit_signal("wave_started")
 
+	var count_sum = 0
 	for data in enemy_data:
 		count_sum += data[1]
 
@@ -92,6 +96,8 @@ func start_spawn() -> void:
 		GameManager.current_level.enemy_parent.add_child(enemy_instance)
 		enemy_instance.global_position = spawn_point.global_position
 		enemy_instance.connect("spawn", spawn_point, "hide", [], CONNECT_ONESHOT)
+		enemy_instance.connect("death", self, "_decrease_enemy_count", [], CONNECT_ONESHOT)
+		enemy_counter += 1
 		spawn_point.show()
 		enemy_data[data_index][1] -= 1
 
@@ -100,7 +106,14 @@ func start_spawn() -> void:
 	
 	if enemy_data.empty():
 		timer.stop()
+		is_finished = true
 		emit_signal("wave_finished")
 
 	timer.start()
 		
+
+func _decrease_enemy_count() -> void:
+	enemy_counter -= 1
+
+	if enemy_counter <= 0 and is_finished:
+		emit_signal("wave_cleared")
